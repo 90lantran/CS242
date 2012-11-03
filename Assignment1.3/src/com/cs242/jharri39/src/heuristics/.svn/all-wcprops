@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/fa12-cs242/!svn/ver/5922/jharri39/Assignment1.3/src/com/cs242/jharri39/src/heuristics
+END
+ManhattanDistanceWithTieBreaker.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/fa12-cs242/!svn/ver/5922/jharri39/Assignment1.3/src/com/cs242/jharri39/src/heuristics/ManhattanDistanceWithTieBreaker.java
+END
+EuclideanDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/fa12-cs242/!svn/ver/5922/jharri39/Assignment1.3/src/com/cs242/jharri39/src/heuristics/EuclideanDistance.java
+END
+ManhattanDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/fa12-cs242/!svn/ver/5922/jharri39/Assignment1.3/src/com/cs242/jharri39/src/heuristics/ManhattanDistance.java
+END
+DiagonalDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/fa12-cs242/!svn/ver/5922/jharri39/Assignment1.3/src/com/cs242/jharri39/src/heuristics/DiagonalDistance.java
+END
+EuclideanSquaredDistance.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/fa12-cs242/!svn/ver/5922/jharri39/Assignment1.3/src/com/cs242/jharri39/src/heuristics/EuclideanSquaredDistance.java
+END
+Heuristic.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/fa12-cs242/!svn/ver/5922/jharri39/Assignment1.3/src/com/cs242/jharri39/src/heuristics/Heuristic.java
+END
