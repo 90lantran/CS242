@@ -1,0 +1,662 @@
+/* Confluence 3.1 favourite/watch images */
+.dynarch-popup-menu .pageunfavourite .icon {
+    background: transparent url("%CONTEXTPATH%/images/icons/fav_on_16.png") no-repeat scroll center;
+}
+.dynarch-popup-menu .pagefavourite .icon {
+    background: transparent url("%CONTEXTPATH%/images/icons/fav_off_16.png") no-repeat scroll center;
+}
+.dynarch-popup-menu .action-page-favourite .icon {
+    background: transparent url("%CONTEXTPATH%/images/icons/fav_off_16.png") no-repeat scroll center;
+}
+.dynarch-popup-menu .ie-page-favourite-selected .icon {
+    background: transparent url("%CONTEXTPATH%/images/icons/fav_on_16.png") no-repeat scroll center;
+}
+
+.dynarch-popup-menu .pagestopwatching .icon {
+    background: transparent url("%CONTEXTPATH%/images/icons/watch_on_16.png") no-repeat scroll center;
+}
+.dynarch-popup-menu .pagestartwatching .icon {
+    background: transparent url("%CONTEXTPATH%/images/icons/watch_off_16.png") no-repeat scroll center;
+}
+.dynarch-popup-menu .action-page-watching .icon {
+    background: transparent url("%CONTEXTPATH%/images/icons/watch_on_16.png") no-repeat scroll center;
+}
+.dynarch-popup-menu .action-page-watching.inactive .icon {
+    background: transparent url("%CONTEXTPATH%/images/icons/watch_off_16.png") no-repeat scroll center;
+}
+
+.dynarch-popup-menu .action-page-watching-space .icon {
+    background: transparent url("%CONTEXTPATH%images/icons/watching_space_16.png") no-repeat scroll center;
+}
+
+
+
+/* dashboard */
+.dashtable ul {
+list-style-type:none;
+padding-left:0px;
+}
+
+.dashtable ul li {
+float:left;
+margin-right:20px;
+}
+
+/* tabs in 3.0 */
+.tabnav .tabs a {
+display:inline;
+float:left;
+margin:0 3px 0 0;
+padding:0 3px;
+text-decoration:none;
+border-color:#6699CC;
+}
+
+#foldertab li a, .tabnav li a {
+border-color:-moz-use-text-color;
+border-style:solid solid none;
+border-width:1px medium;
+margin-left:3px;
+padding:3px 0.5em;
+text-decoration:none;
+}
+
+.tabnav .tabs a:hover {
+background-color:#003366;
+border-bottom-color:#003366;
+color:#FFFFFF;
+}
+.tabnav .tabs a {
+background-color:#6699CC;
+border:1px solid #6699CC;
+color:#FFFFFF;
+}
+.tabnav li a {
+-moz-border-radius-topleft:3px;
+-moz-border-radius-topright:3px;
+display:inline;
+padding:0.4em 0.6em;
+text-decoration:none;
+}
+
+
+
+
+ul.tabnav li.spaceActionLinks {
+-moz-border-radius-topleft:3px;
+-moz-border-radius-topright:3px;
+padding:0;
+text-decoration:none;
+border: 1px solid #036;
+padding:0 0;
+border-bottom-style: none;
+
+}
+ul.tabnav .spaceActionLinks {
+display:inline;
+padding: 0;
+}
+
+ul.tabnav .spaceActionLinks a {
+padding: 3px 3px 0 3px;
+margin:0;
+border-style: none;
+}
+ul.tabnav {
+margin:0px 10px 10px 0px;
+	width: 98%;
+}
+
+ul.tabnav {
+bottom:3px;
+float:none;
+margin:0px;
+padding:0px;
+position:relative;
+text-decoration:none;
+	display: inline-block;
+}
+.tabnav {
+border-bottom: 1px solid #69c;
+display:block;
+float:none;
+list-style-position: inside;
+margin:0;
+padding:0;
+}
+ul.tabnav li a.current:hover, ul.tabnav li a.current {
+background:white none repeat scroll 0 0;
+border-bottom:1px solid white;
+color:black;
+}
+
+/* fix people directory in 3.0 */
+#peoplelist .profile-macro{
+float:left;
+width:30%;
+margin-bottom:30px;
+}
+
+/* fix body overflow for confluence 3.0 - what on earth were they thinking? */
+body.atb-body {
+    overflow:visible !important;
+}
+
+/* avoid shifting the RTE to the right */
+#wysiwyg {
+  clear:left;
+}
+.inputSection {
+ width:100%;
+}
+
+/* quick search */
+.quick-search fieldset {
+	position: relative;
+}
+.quick-search {
+    text-align: left;
+}
+.quick-nav-drop-down {
+    right: 10px;
+}
+
+/* avoid titlecontent growing too large */
+
+.atb-titlecontent {
+    height:10px;
+}
+
+/* unlicensed */
+
+div.unlicensed {
+    text-align:center;
+    background-color:#FFF3F3;
+    border:9px solid #DD3333;
+    margin:50px;
+    padding:20px 50px 50px 50px;
+}
+div.unlicensed h1, div.unlicensed h1 a {
+    font-size:xx-large;
+    font-weight:bold;
+    color:#BB0000;
+}
+div.unlicensed p, div.unlicensed a {
+    color:#990000;
+    font-size:medium;
+    font-weight:normal;
+}
+
+
+/* search input */
+.search-query-text-input {
+    height:20px;
+    width:70%;
+    float:left;
+    margin-right:3px !important;
+}
+
+.search-filters-panel {
+    margin-top:3px;
+}
+
+/* mail css */
+.mailLabel {
+    color: #666666; font-weight: bold;
+}
+
+.mailthread {
+}
+
+.unparented {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.parented {
+    list-style-image: url("%CONTEXTPATH%/images/icons/link_out_bot.gif");
+}
+
+.mailthread ul {
+    list-style-image: url("%CONTEXTPATH%/images/icons/link_out_bot.gif");
+}
+
+.selectedMail {
+  background-color: #ffffcc;
+  padding: 2px;
+  border: 1px solid #ddd;
+}
+
+.excerpt {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* blog-list macro */
+.bloglist.default .permalink {
+    float:right;
+    font-size:x-small;
+}
+.bloglist.default .title {
+    font-size:x-large;
+}
+.bloglist.default .date {
+    font-size:x-large;
+}
+.bloglist.default .postedby, .bloglist.default .postedbydate {
+    font-size:x-small;
+}
+
+
+
+/* extracted-default theme.css */
+.tabnav .tabs a {
+    padding: 0px 3px 0px 3px;
+    margin: 0px 3px 0 0;
+    border-bottom: none;
+    text-decoration: none;
+    display: block;
+    float: left;
+}
+
+
+/* list page navigational tabs */
+.tabnav, .comment .tabnav {
+    padding: 0;
+    margin: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    float: left;
+    display: inline;
+    list-style-position: outside;
+    width: 100%;
+    font-weight: normal;
+    font-size: 9pt;
+}
+
+
+/* comments in IE in 2.8 */
+.comment, .comment-body, .comment-header { height:auto; }
+
+/* support recently-updated display */
+.recentlyUpdatedItem {
+	border-bottom: #f0f0f0 1px solid;
+	border-top: #f0f0f0 1px solid;
+	margin: 10px 0 0 0;
+	padding: 0px;
+	border-spacing: 0px;
+	width: 100%;
+    text-decoration: none;
+    border-collapse: collapse;
+}
+
+.recentlyUpdatedItem td {
+    padding: 10px;
+    border-bottom: #f0f0f0 1px solid;
+    vertical-align: top;
+}
+
+.recentlyUpdatedItem .authorAndDate {
+	background-color: #f0f0f0;
+	width: 25%;
+}
+
+.recentlyUpdatedItem .date {
+    margin-top: 4px;
+    font-size: 90%;
+    color: #666;
+}
+
+.recentlyUpdatedItem .profilePic {
+    float: right;
+    background-color: #f0f0f0;
+    margin: 0 2px;
+}
+
+.recentlyUpdatedItem .twixie {
+    padding: 10px 0 0 4px;
+}
+
+.recentlyUpdatedItem .icon {
+    padding: 8px 0 0 1px;
+}
+
+.recentlyUpdatedItem .details {
+    padding-left: 7px;
+}
+
+.recentlyUpdatedItem .summary, .recentlyUpdatedItem .thumbnail {
+    margin-top: 3px;
+    color: #666666;
+}
+
+.moreRecentlyUpdatedItems {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 10pt;
+}
+
+/* ensure titlecontent cell is correctly aligned */
+.atb-titlecontent {vertical-align:top;}
+
+/* support for page versions */
+.hidden {
+    display: none;
+}
+
+/* menus in opera */
+.menubar {
+    position: static;
+}
+
+/* pagetree2 */
+.pagetree2 .lines, .pagetree2 .plusminus-and-icon, .pagetree2 .cell3 {
+    white-space:nowrap;
+}
+
+
+/* access keys */
+#atb-accessKeys { margin: 0; padding: 0; }
+#atb-accessKeys dt { margin: 0; padding: 0; position: absolute; top: -9999px; left: 0; }
+#atb-accessKeys dd { margin: 0; padding: 0; }
+#atb-accessKeys dd a { position: absolute; top: -9999px; left: 0; }
+#atb-accessKeys dd a:focus, #accessKeys dd a:active { background-color: #3556a2 !important; color: #fff !important; top: 0; font-size: 1.2em; padding: .5em; }
+
+/* make headings less ugly */
+.atb-page h1, .atb-page h2, .atb-page h3, .atb-page h4, .atb-page h5, .atb-page h6 {
+ background-color: transparent;
+ border-style: none;
+ padding: 0px;
+}
+.atb-title h1 {
+ font-size: 18px;
+ line-height: 1.0em;
+ margin-top: 0px;
+}
+
+/* make breadcrumbs less rancid */
+.breadcrumbs {
+ background-color: transparent;
+ border: 1px none transparent;
+}
+ol.breadcrumbs {
+    padding:0px;
+    margin:0px;
+    display: inline;
+}
+ol.breadcrumbs li.breadcrumb {
+    float:left;
+    list-style-type:none;
+    padding-right:3px;
+}
+
+ol.ellipsis li.breadcrumbsExpansion, ol.expanded li.breadcrumbsEllipsis { display:none; }
+ol.expanded li.breadcrumbsExpansion, ol.ellipsis li.breadcrumbsEllipsis { display:block; }
+
+/* labels in menus */
+div.dynarch-horiz-menu .label, div.dynarch-popup-menu .label {
+ font-weight: normal;
+}
+
+/* allow panel css to set design of menus in .atb-menu */
+.atb-menu div.dynarch-horiz-menu {
+ background-color: transparent;
+ background-image: none;
+ border-style: none;
+}
+
+/* remove margins from forms */
+.marginlessForm {
+ margin: 0px;
+}
+
+/* don't force search box to be 100% width */
+.confluence-searchbox {
+ width: auto;
+ white-space: nowrap;
+}
+
+/* remove padding from PageContent */
+.PageContent, .pagecontent {
+ padding: 0px;
+}
+
+/* ui table (e.g. attachments list) */
+.tableview th, .tabletitle, .pageSectionHeader {
+ border-bottom-width: 1px;
+}
+.tableview th, div.tabletitle {
+ font-weight: bold;
+}
+.mode-view-attachments .tableview td {
+ border-top: 1px solid #fff;
+ vertical-align: middle;
+}
+.tableview td {
+ border-bottom: 1px dotted #ccc;
+}
+.tableview tr:hover td {
+ border-bottom: 1px solid #000;
+}
+.rowAlternate {
+ background-color: #f7f7f7;
+}
+
+/* activity screens */
+.context-space-activity .pagebody {
+ padding: 0px;
+}
+
+/* no image borders */
+a img {
+ border-style: none;
+}
+
+/* hide accessibility features by default */
+.accessibility {
+ display: none;
+}
+
+/* left slider */
+.atb-leftslider {
+ cursor: w-resize !important;
+}
+
+/* right slider */
+.atb-rightslider {
+ cursor: e-resize !important;
+}
+
+/* allow special effects on tables, etc. */
+.layout {
+ direction:ltr;
+}
+
+/* inhibit selection where possible */
+.noselect {
+ -moz-user-select: none;
+ cursor: default;
+}
+
+/* line spacing */
+body, p, li, ul {
+ line-height:1.6em;
+}
+
+/* citation */
+cite:before { content: "\""; }
+cite:after { content: "\""; }
+cite, cite:before, cite:after {
+ font-family: Georgia, "Times New Roman", serif;
+ font-style: italic;
+}
+
+/* insertions and deletions */
+ins {
+ background-color: #DBFFDB;
+}
+del {
+ background-color: #FFE5E5;
+}
+
+/* make italics more readable */
+i, em {
+ letter-spacing: 1px;
+}
+
+/* tables */
+.confluenceTable {
+ border: 1px solid #B2B2B2;
+ border-collapse: collapse;
+}
+.confluenceTable th.confluenceTh {
+ background-color: #F5F5F5;
+ border: 1px dotted #B2B2B2;
+ font-weight: bold;
+ font-size: small;
+ padding: 3px 4px 3px 4px;
+}
+.confluenceTable .confluenceTd {
+ border: 1px dotted #B2B2B2;
+ padding: 3px 4px 3px 4px;
+}
+
+/* ExtJS unselectable panels */
+.x-unselectable { cursor: default; }
+
+/* skip navigation */
+@media screen, print, handheld, projection, tv {
+ .non-visual {display: none; visibility: hidden;}
+}
+
+/* sliders */
+.atb-slider .atb-slider-img {
+ width: 9px;
+ height: 20px;
+}
+.atb-leftslider .atb-leftslider-img {
+ background-position: top right;
+}
+.atb-rightslider .atb-rightslider-img {
+ background-position: top left;
+}
+
+.quicklinks {
+ overflow: auto;
+}
+.quicklinks div {
+ clear: none;
+ float: left;
+ margin-bottom: 4px;
+ width: 49%;
+}
+
+/* Stop menu items wrapping */
+div.dynarch-horiz-menu table tr td {
+ white-space: nowrap;
+}
+
+/* Provide support for menu spacers */
+div.dynarch-horiz-menu table tr td.spacer {
+ width: 100%;
+}
+div.dynarch-horiz-menu table tr td.spacer div {
+ display:none;
+}
+
+/* poweredBy */
+.poweredBy, .poweredBy a {
+ color:#909090;
+ font-size:small;
+}
+
+/* fixes comments squashing */
+#comments-section .comment {
+    height: auto;
+}
+
+ol.comment-threads
+{
+  padding-left: 10px;
+  padding-right: 0px;
+}
+
+.comment-body {
+ overflow-x: auto;
+ clear: right;
+}
+
+.comment-thread, .comment-even, .comment-odd {zoom:1}
+
+/**** fixes coloring of code macro ****/
+.code {
+    background-color:#FFFFFF;
+    border-style:dashed;
+    border-width:1px;
+    overflow:auto;
+}
+
+.code .codeContent {
+    text-align:left;
+    color:#000000;
+    font-size:0.95em;
+    margin:0;
+    padding:0 12px;
+    -moz-background-clip:border;
+    -moz-background-inline-policy:continuous;
+    -moz-background-origin:padding;
+    background:#FFFFFF none repeat scroll 0 0;
+}
+
+.code pre {
+    margin:10px 0;
+    overflow:auto;
+    padding:0;
+    font-family:"Courier New",Courier,monospace;
+    line-height:1.3;
+}
+
+.code pre span {
+    font-family:"Courier New",Courier,monospace;
+    line-height:1.3;
+}
+
+.code .code-keyword {
+    background-color:inherit;
+    color:#000091;
+}
+
+.code .code-comment {
+    background-color:inherit;
+    color:#808080;
+}
+
+.code .code-quote {
+    background-color:inherit;
+    color:#009100;
+}
+
+.code .code-object {
+    background-color:inherit;
+    color:#910091;
+}
+
+/*** fixes spaceadmin siderbar padding ***/
+ul.navmenu {
+    padding-right: 0px;
+}
+
+.atb-body {padding:0px;margin:0px;text-align:left;background-color:#446677;}
+.atb-body, .atb-body p, .atb-body td, .atb-body th, .atb-body div, .atb-body span, .atb-body div.dynarch-horiz-menu, .atb-body div.dynarch-horiz-menu table, .atb-body div.dynarch-horiz-menu table, .atb-body input, .atb-body ul li, .atb-body ol li, .atb-body select {font-family:sans-serif;font-size:12px;line-height:1.6em;}
+.atb-page {background-color:#FFFFFF;}
+.atb-menu {border-style:outset;border-width:1px;border-color:#F3F4EC;background-color:#EAEDE0;}
+.atb-menu, .atb-menu p, .atb-menu td, .atb-menu th, .atb-menu div, .atb-menu span, .atb-menu div.dynarch-horiz-menu, .atb-menu div.dynarch-horiz-menu table, .atb-menu div.dynarch-horiz-menu table, .atb-menu input, .atb-menu ul li, .atb-menu ol li, .atb-menu select {color:#000000;}
+.atb-navigation {border-style:outset;border-width:1px;border-color:#F3F4EC;padding:2px;background-color:#EAEDE0;}
+.atb-content {padding:5px;overflow:visible;vertical-align:top;}
+.atb-footnote {padding:5px;overflow:visible;vertical-align:top;height:10px !important;}
+.atb-footer {border-style:outset;border-width:1px;border-color:#F3F4EC;padding:2px;text-align:center;background-color:#EAEDE0;}
+
+/* empty */
+
+

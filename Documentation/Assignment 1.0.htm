@@ -1,0 +1,1189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0063)https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Assignment 1.0 - CS242: Programming Studio -&nbsp;University of Illinois - Engineering Wiki</title>
+
+        
+
+                        
+    
+                        
+    
+
+    
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta name="ajs-context-path" content="">
+<meta name="ajs-build-number" content="2042">
+<meta id="atlassian-token" name="atlassian-token" content="08d67891302d0c2637d357d4aefd6de8bfbd870a">
+<meta id="confluence-space-key" name="confluence-space-key" content="cs242fa12">
+<meta name="ajs-remote-user" content="jharri39">
+<meta name="ajs-static-resource-url-prefix" content="/s/2042/16/_">
+
+<meta name="Generator" content="Adaptavist Theme Builder 4.2.2">
+    <meta name="DESCRIPTION" content="Assignment 1.0 Maze Solving Library  Note, always remember to check this assignment description for Update markers over the course of the next few days for changes or clarifications to this assignment specification. If any major changes are made to this spec, we will announce them ... ">
+    
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+    <!-- include system css resources -->
+    <link type="text/css" rel="stylesheet" href="./Assignment 1.0_files/batch.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/2042/16/18/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Assignment 1.0_files/batch(1).css" media="print">
+<link type="text/css" rel="stylesheet" href="./Assignment 1.0_files/confluence.web.resources-view-comment.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/2042/16/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Assignment 1.0_files/confluence.macros.advanced-fancy-box.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 1.0_files/com.atlassian.confluence.plugins.drag-and-drop-support.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 1.0_files/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module-shortcuts.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 1.0_files/com.atlassian.confluence.keyboardshortcuts-confluence-keyboard-shortcuts.css" media="all">
+
+    <!-- end system css resources -->
+
+            <link rel="stylesheet" href="./Assignment 1.0_files/combined.css" type="text/css">
+    
+                    <link rel="stylesheet" type="text/css" href="./Assignment 1.0_files/skin-longhorn.css">
+        <script type="text/javascript">
+        var _dynarch_menu_url = "/s/2042/16/4.2.2/_/download/resources/com.adaptavist.confluence.themes.sitebuilder:sitebuilder/hmenu/src/";
+        document.write("<style>.menulist {display:none;}<\/style>");
+    </script><style>.menulist {display:none;}</style>
+
+<link rel="stylesheet" type="text/css" href="./Assignment 1.0_files/layout-resources.action">
+<link rel="stylesheet" type="text/css" href="./Assignment 1.0_files/layout-resources(1).action">
+
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+    <meta name="robots" content="NOYDIR,NOODP">
+    <meta name="confluence-request-time" content="1352426415891">
+
+<meta name="loggedInUsername" content="jharri39">
+            <meta name="ajs-keyboardshortcut-hash" content="509e0e67e4d7131ca810849d3d4ba1b7">
+    <!-- Deprecated since 3.4. To be removed in a future version of Confluence; use atl.header -->
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+    
+        <link rel="shortcut icon" href="https://wiki.engr.illinois.edu/favicon.ico">
+    <link rel="icon" type="image/png" href="https://wiki.engr.illinois.edu/s/2042/16/_/images/logo/confluence_16.png">
+
+    <link rel="search" type="application/opensearchdescription+xml" title="Search CS242: Programming Studio on University of Illinois - Engineering Wiki" href="https://wiki.engr.illinois.edu/plugins/builder/layout-resources.action?layoutId=CS242&key=cs242fa12&resource=opensearch&hash=1330985534293">
+
+
+<style type="text/css">
+    .atb-sidebar.expanded {display:run-in;}
+    .atb-sidebar.collapsed {display:none;visibility:collapse;}
+</style>
+
+
+        <!-- include system javascript resources -->
+                        
+    
+    <script type="text/javascript" src="./Assignment 1.0_files/batch.js"></script>
+<script type="text/javascript" src="./Assignment 1.0_files/confluence.macros.advanced-fancy-box.js"></script>
+<script type="text/javascript" src="./Assignment 1.0_files/confluence.macros.advanced-thumbnail-images.js"></script>
+<script type="text/javascript" src="./Assignment 1.0_files/com.atlassian.confluence.plugins.drag-and-drop-support.js"></script>
+<script type="text/javascript" src="./Assignment 1.0_files/com.atlassian.confluence.plugins.drag-and-drop-drag-and-drop-for-view-content.js"></script>
+<script type="text/javascript" src="./Assignment 1.0_files/com.atlassian.confluence.plugins.doctheme-splitter.js"></script>
+<script type="text/javascript" src="./Assignment 1.0_files/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module-shortcuts.js"></script>
+<script type="text/javascript" src="./Assignment 1.0_files/com.atlassian.confluence.keyboardshortcuts-confluence-keyboard-shortcuts.js"></script>
+<script type="text/javascript" src="./Assignment 1.0_files/legacy.confluence.web.resources-prototype.js"></script>
+
+    
+    <!-- end system javascript resources -->
+
+<script type="text/javascript" src="./Assignment 1.0_files/layout-resources(2).action"></script>
+
+    
+
+
+
+    
+    <link rel="canonical" href="./Assignment 1.0_files/Assignment 1.0.htm">
+    <link rel="shortlink" href="https://wiki.engr.illinois.edu/x/8BsoD">
+    <meta name="wikilink" content="[cs242fa12:Assignment 1.0]">
+
+</head>
+<body onload="BuilderEvents.onPageLoad();" onunload="BuilderEvents.onPageUnload();" class="atb-body layout-CS242  spacekey-cs242fa12 mode-view context-page decorator-page action-viewpage " id="atb-document">
+
+<!--[if lt IE 7.0000]>
+    <script type="text/javascript" language="JavaScript" src="/s/2042/16/4.2.2/_/download/resources/com.adaptavist.confluence.themes.sitebuilder:sitebuilder/js/PieNG.js"></script>
+<![endif]-->
+
+<dl id="atb-accessKeys">
+  <dt>Access Keys:</dt>
+  <dd><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0#atb-content" accesskey="0">Skip to content (Access Key - 0)</a></dd>
+</dl>
+
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
+    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
+    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
+    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
+    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
+</fieldset>
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="104857600">
+    <input type="hidden" id="userLocale" value="en_GB">
+    <input type="hidden" id="staticResourceUrlPrefix" value="/s/2042/16/_">
+    <input type="hidden" id="contextPath" value="">
+</fieldset>
+
+    
+
+
+<!--themebody.vm-->
+<script type="text/javascript" language="JavaScript">
+</script>
+<table align="center" width="100%" cellspacing="0" cellpadding="0" class="atb-shell" id="com-atlassian-confluence">
+    <tbody><tr>
+        <td style="vertical-align:top;"><div class="atb-p1"><div class="atb-p2"><div class="atb-p3">
+            <table class="layout atb-page" width="100%" height="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td class="layout atb-upper"><div class="atb-u1"><div class="atb-u2">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr><td id="atb-header" class="layout atb-header"><div id="atb-headerdiv" class="layout atb-headerdiv">  <a href="https://wiki.engr.illinois.edu/display/cs242fa12?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel=" home"><img border="0" title="CS242: Programming Studio Logo" class="builder-logo space-logo" src="./Assignment 1.0_files/cs242fa12" alt="space logo"></a> </div></td></tr>
+                                 <tr><td id="atb-menu" class="layout atb-menu"><div id="atb-menudiv" class="layout atb-menudiv">  <div id="menu1" class="menubar menubar1  ajs-drop-down">
+    <div class="dynarch-horiz-menu"><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="item explicit-action" title="Home"><div unselectable="on">Home</div></td><td class="item explicit-action" title="Syllabus"><div unselectable="on">Syllabus</div></td><td class="item explicit-action" title="Lectures"><div unselectable="on">Lectures</div></td><td class="item explicit-action has-submenu" title="Assignments"><div unselectable="on">Assignments</div></td><td class="item explicit-action" title="Resources"><div unselectable="on">Resources</div></td><td class="item explicit-action" title="FAQ"><div unselectable="on">FAQ</div></td><td class="item explicit-action" title="Announcement Archive"><div unselectable="on">Announcement Archive</div></td><td class="separator" title=""><div unselectable="on"></div></td><td class="item menuitem  has-submenu" title=""><div unselectable="on">View</div></td><td class="item menuitem  has-submenu" title=""><div unselectable="on">Edit</div></td><td class="item explicit-action menuitem shrink-width has-submenu" title=""><div unselectable="on"><img src="./Assignment 1.0_files/eye-off.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></div></td></tr></tbody></table></div></div></div></div></div></div><ul id="menu1-data" class="" style="display: none; ">
+    
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Home" title="Home">Home</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Syllabus" title="Syllabus">Syllabus</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Lectures" title="Lectures">Lectures</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignments" title="Assignments">Assignments</a>
+	<ul>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+0" title="Assignment 0">Assignment 0</a></li>
+		<li><a href="./Assignment 1.0_files/Assignment 1.0.htm" title="Assignment 1.0">Assignment 1.0</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.1" title="Assignment 1.1">Assignment 1.1</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2" title="Assignment 1.2">Assignment 1.2</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.3" title="Assignment 1.3">Assignment 1.3</a></li>
+		<li><span class="error">[Assignment 1.4]</span></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.0" title="Assignment 2.0">Assignment 2.0</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1" title="Assignment 2.1">Assignment 2.1</a></li>
+		<li><span class="error">[Assignment 2.2]</span></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Final+Project" title="Final Project">Final Project</a></li>
+	</ul>
+	</li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Resources" title="Resources">Resources</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/FAQ" title="FAQ">FAQ</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Announcement+Archive" title="Announcement Archive">Announcement Archive</a></li>
+	<li><span class="error">[Discussion]</span></li>
+
+<li class="menuitem ">View<ul class="submenu "><li class="menuitem ">This page<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&decorator=normal" rel="nofollow">Normal view</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&decorator=printable" rel="nofollow">Printable view</a></li>
+  <li class="menu-separator "> </li>
+  
+  
+  
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/mailpage/mailpage.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203955184" id="mailPageLink" class="" rel="nofollow">Email this page</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/viewinfo.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203955184" rel="nofollow">Page information</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/labels/addfavourite.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&entityId=203955184" rel="nofollow">Add page as favourite</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203955184" rel="nofollow">Watch this page</a></li>
+ </ul></li>
+ <li class="menuitem ">Other pages<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel=" home">Home page</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/dashboard.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">Dashboard</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/viewrecentblogposts.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">News</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/recentlyupdated.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">Recent updates</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/dashboard/configurerssfeed.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">RSS feed builder</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/listpages-alphaview.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel=" index">Index</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/listpages-dirview.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12&openId=203955184" rel="">Site map</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/labels/listlabels-heatmap.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">Labels</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/spaces/listattachmentsforspace.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Attachments index</a></li>
+  
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/browsepeople.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">People Directory</a></li>
+ </ul></li>
+ <li class="menu-separator "> </li>
+ <li class="menuitem ">Account<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/users/viewuserprofile.action?username=jharri39&atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">Preferences: Joshua Harris</a></li>
+  
+  <li class="menu-separator "> </li>
+  
+  <li class="menuitem "><a href="javascript:void(window.open('/users/viewuserhistory.action','user_history', 'width=620, height=325, resizable'));" rel="nofollow">History</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/logout.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="nofollow">Log out</a></li>
+ </ul></li>
+ </ul></li>
+<li class="menuitem ">Edit<ul class="submenu "><li class="menuitem ">Administration<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/spaces/viewspacesummary.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Advanced</a></li>
+  </ul></li>
+</ul></li>
+<li class="menuitem shrink-width"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0#" rel="nofollow"><img src="./Assignment 1.0_files/eye-off.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></a><ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203955184" rel="nofollow">Watch this page</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/plugins/builder/addspacenotification.action?loopbackURL=/display/cs242fa12/Assignment+1.0&atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Watch entire space</a></li>
+</ul></li>
+
+    </ul>
+</div>
+<script type="text/javascript" language="JavaScript">
+
+jQuery(function($) {
+ $("#menu1")[0].hide=function(){};
+});
+
+function initmenu_1() {
+    if (window.DynarchMenu) {
+        var menuOpts={electric:250, tooltips:true, shadows:[4,6], smoothShadows:true, blink:false, lazy:false, setFocus:false, scrolling:true};
+        if (jQuery.browser.opera) menuOpts["scrolling"]=false;
+        document.getElementById("menu1-data").className="";
+        DynarchMenu.setup("menu1-data", menuOpts);
+    }
+}
+
+AJS.toInit(function() {window.setTimeout(initmenu_1,0)});
+
+</script>
+ </div></td></tr>
+                                <tr><td id="atb-navigation" class="layout atb-navigation"><div id="atb-navigationdiv" class="layout atb-navigationdiv">  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td valign="middle"><span class="breadcrumbs"><ol class="breadcrumbs ellipsis" id="breadcrumbs.list"><li class="breadcrumb breadcrumb0 dashboardbreadcrumb"><a href="https://wiki.engr.illinois.edu/dashboard.action">Dashboard</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb1 spacebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12">CS242: Programming Studio</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb2 pagebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Home">Home</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb3 pagebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignments">Assignments</a>&nbsp;&gt;</li><li class="breadcrumb last breadcrumb4 pagebreadcrumb"><a href="./Assignment 1.0_files/Assignment 1.0.htm">Assignment 1.0</a></li></ol></span></td>
+<td align="right" valign="middle"><a href="https://wiki.engr.illinois.edu/labels/addfavourite.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&entityId=203955184" title="Add page as favourite" rel="nofollow"><img src="./Assignment 1.0_files/star_grey.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="Add page as favourite" alt="Add page as favourite"></a>
+<a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203955184" title="Watch this page" rel="nofollow"><img src="./Assignment 1.0_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="Watch this page" alt="Watch this page"></a>
+
+
+
+</td></tr></tbody></table> </div></td></tr>
+                            </tbody></table></div></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="layout atb-lower"><div class="atb-l1"><div class="atb-l2">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr class="layout content-row">
+                                    <td class="layout atb-titlecontent">
+                                        <div id="atb-content" class="layout atb-content"><div id="atb-contentdiv" class="layout atb-contentdiv">
+                                            <!--page.vmd-->
+    
+    
+        
+    
+    
+                    
+    
+<div id="content" class="page view">
+
+
+
+
+<fieldset id="link-to-page-fields" class="hidden parameters">
+    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
+    <input type="hidden" id="linkToThisPageLink" value="Link">
+    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
+    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
+    <input type="hidden" id="linkToThisPageClose" value="Close">
+</fieldset>
+<fieldset class="hidden parameters">
+    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page – ‘Assignment 1.0’">
+    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
+    <input type="hidden" title="movePageDialogMoveButton" value="Move">
+    <input type="hidden" title="movePageDialogOkButton" value="OK">
+    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
+    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
+    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
+    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
+    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
+    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
+    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
+    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
+    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
+    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
+    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
+    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing &lt;b&gt;{0}&lt;/b&gt;.">
+    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing &lt;b&gt;{0}&lt;/b&gt;-&lt;b&gt;{1}&lt;/b&gt; of &lt;b&gt;{2}&lt;/b&gt; pages containing &lt;b&gt;{3}&lt;/b&gt;.">
+    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
+    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
+    <input type="hidden" title="pageTitle" value="Assignment 1.0">
+    <input type="hidden" title="parentPageTitle" value="Assignments">
+    <input type="hidden" title="fromPageTitle" value="">
+    <input type="hidden" title="spaceKey" value="cs242fa12">
+    <input type="hidden" title="spaceName" value="CS242: Programming Studio">
+    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children.">
+    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering">
+    <input type="hidden" title="movePageDialogBackButton" value="Back">
+    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder">
+    <input type="hidden" title="movePageDialogNextButton" value="Move">
+</fieldset>
+
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Specify the new parent page for this page and its children by space and title.
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+            <div class="row">
+                <label for="new-space">New space:</label>
+                <div class="value new-space-value">
+                    <input id="new-space-key" name="new-space-key" type="hidden" value="cs242fa12">
+                                            <span class="space-input">
+                            <input id="new-space" name="new-space" value="CS242: Programming Studio" disabled="disabled">
+                        </span>
+                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
+                                        <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-parent-page">New parent page:</label>
+                <div class="value new-parent-page-value">
+                    <span class="page-input">
+                        <input id="new-parent-page" name="new-parent-page" value="Assignments">
+                    </span>
+                    <span class="description">Start typing a page title to see a list of suggestions.</span>
+                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageErrors">
+    <div id="move-errors" class="hidden warning"></div>
+</script>
+<script type="text/x-template" title="movePageBreadcrumb">
+    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbLoading">
+    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbError">
+    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
+</script>
+<script type="text/x-template" title="movePageNoMatchingPages">
+    <ol><li><span class="warning">No matching pages found.</span></li></ol>
+</script>
+<script type="text/x-template" title="movePageNoMatchingSpaces">
+    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Search for and select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+        <div class="search-form">
+            <fieldset>
+                
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+                
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+                <input class="search-query" id="move-page-search-query">
+                
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+                                    <select id="move-page-search-space" class="search-space" disabled="disabled">
+                        <option value="cs242fa12" selected="selected">CS242: Programming Studio</option>
+                    </select>
+                                <input type="button" value="Search">
+                                    <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
+                            </fieldset>
+        </div>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageSearchResultsLoading">
+    <div class="searching">Searching…</div>
+</script>
+
+<script type="text/x-template" title="movePageHistoryPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Select the new parent page for this page and its children from your history.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageHistoryLoading">
+    <div class="searching">Loading…</div>
+</script>
+<script type="text/x-template" title="movePageBrowsePanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Click to select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div class="tree"></div>
+</script>
+<script type="text/x-template" title="movePagePanelLoading">
+    <span>Loading…</span>
+</script>
+<script type="text/x-template" title="movePageBrowsePanelSpace">
+    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
+</script>
+<script type="text/x-template" title="orderingPagePanel">
+<div id="orderingPlaceHolder"></div>
+</script>
+<script type="text/x-template" title="reorderCheckbox">
+<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
+</script>
+<script type="text/x-template" title="move-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Moving+a+Page" target="_blank">Help</a>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+<!-- Start restrictions section -->
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" title="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
+        <input type="hidden" title="i18n.page.perms.dialog.heading" value="Page Restrictions">
+        <input type="hidden" title="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
+        <input type="hidden" title="i18n.cancel.name" value="Cancel">
+        <input type="hidden" title="i18n.close.name" value="Close">
+        <input type="hidden" title="i18n.update.name" value="Save">
+</fieldset>
+
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                    <span id="page-permissions-choose-me" class="ajs-button normal">
+                        <img class="permission-entity-picture" src="/images/icons/profilepics/default.gif" border="0" alt="Me" align="absmiddle"/>
+                        <a href="#">Me</a>
+                        <span class="remote-user-name hidden">jharri39</span>
+                    </span>
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=cs242fa12&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/2042/16/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=cs242fa12&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=cs242fa12&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/2042/16/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=cs242fa12&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                                <span>
+                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
+                </span>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/2042/16/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/x-template" title="permissions-row-template">
+    <tr class="permission-row">
+                                
+                <td class="page-permissions-marker-cell" width="20%">
+            <span>Viewing restricted to:</span>
+        </td>
+                <td class="permission-entity" nowrap="true" width="40%">
+            <span class="entity-container">
+                <img class="permission-entity-picture"/>
+                <span class="permission-entity-display-name"></span>
+                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
+            </span>
+        </td>
+        <td class="permission-detail-column">
+            <div class="permission-remove-div">
+                <a href="#" class="remove-permission-link">Remove restriction</a>
+            </div>
+        </td>
+    </tr>
+</script>
+<script type="text/x-template" title="permissions-username-no-suggestion-template">
+    <ol>
+        <li><a href="#" class="message"><span>No matches</span></a></li>
+    </ol>
+</script>
+<script type="text/x-template" title="page-inherited-permissions-table-div-template">
+        <div class="page-inherited-permissions-owner-div">
+        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
+        <table class="page-permissions-table"></table>
+    </div>
+</script>
+<script type="text/x-template" title="page-restrictions-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Page+Restrictions" target="_blank">Help</a>
+    </div>
+</script>
+<!-- End restrictions section -->
+
+<fieldset class="hidden parameters">
+    <input type="hidden" title="spaceKeyEncoded" value="cs242fa12">
+    <input type="hidden" title="spaceKeyDecoded" value="cs242fa12">
+</fieldset>
+
+                      
+    
+     
+     <fieldset class="hidden parameters">
+                <input type="hidden" title="browsePageTreeMode" value="view">
+    </fieldset>
+    <div class="wiki-content">
+        <!-- wiki content -->
+            <h1><a name="Assignment1.0-Assignment1.0MazeSolvingLibrary"></a>Assignment 1.0 - Maze Solving Library</h1>
+
+<p>Note, always remember to check this assignment description for <b>Update</b> markers over the course of the next few days for changes or clarifications to this assignment specification. If any major changes are made to this spec, we will announce them both on the front page of the course website as well as on Piazza.</p>
+
+<p><b>Objective:</b> Write <b><em>unit tests</em></b> to guide the development of your maze solving library, and prove that it works.  You will write the tests <b><em>before</em></b> you implement the library functions.</p>
+
+<div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 1.0_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b>Both</b> the unit tests and implementation for your library are due this week!</td></tr></tbody></table></div>
+
+<p><b>Goals:</b></p>
+<ul>
+	<li>Learn about <span class="nobr"><a href="http://en.wikipedia.org/wiki/Test-driven_development" class="external-link" rel="nofollow">Test Driven Development<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li>Learn the value of completely planning out a design <em>before</em> diving into its implementation</li>
+	<li>Learn how to write unit tests</li>
+	<li>Learn how to write a library</li>
+</ul>
+
+
+<p><b>Required Reading:</b> Code Complete Chapter 22: Developer Testing</p>
+
+<div class="panelMacro"><table class="warningMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 1.0_files/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>Questions that appear in lecture quizzes may come from the assigned reading, so it is in your best interest to complete it.</td></tr></tbody></table></div>
+
+<p><b>Language:</b> Java with jUnit</p>
+
+<div class="panelMacro"><table class="warningMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 1.0_files/forbidden.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>For this assignment, you <b>MUST</b> either use the Eclipse IDE or IntelliJ Idea (most likely community edition unless you want to buy a student license)</td></tr></tbody></table></div>
+
+<p>This week we will begin looking into unit testing and test-driven development.  Eventually, we'll explore the <span class="nobr"><a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" class="external-link" rel="nofollow">Model-View-Controller (MVC) design methodology<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> to help us create a GUI.  We'll be designing and creating a maze-solving library, using the above techniques.</p>
+
+<p>Bear in mind that you should be able to run your code during class, so be sure to bring in whatever you need to demonstrate your code.</p>
+
+<p>The assignment will span three weeks; in this first week, we will cover unit testing and test-driven development.  You will be expected to write a maze-solving library.  For this first week, you will only be concerned with writing unit tests and implementing basic functionality for your library. The library will need to implement the A* algorithm, and any supporting methods.  Your library should be able to construct a maze, solve it (if there is a solution) and return the winning path. Also, your library should be "<em>pluggable</em>" to support new algorithms for solving mazes. <em>Be sure to read the entire assignment before beginning.</em> Refer to the questions below in order to learn all of the things you should keep in mind when working on this assignment.</p>
+
+<p>The assignment is due by the beginning of your next week's discussion section in your SVN repository. Please place all files needed for compilation and demo'ing of your assignment (but not executable or compiled files) into a folder in your repository called <b>Assignment1.0</b>, that is, you should be able to bring up <span class="nobr"><a href="https://subversion.ews.illinois.edu/svn/fa12-cs242/NETID/Assignment1.0/" class="external-link" rel="nofollow">https://subversion.ews.illinois.edu/svn/fa12-cs242/NETID/Assignment1.0/<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> in a web browser (replacing NETID with your actual netid) and see all of your code.</p>
+
+<p><b>You are required to use Eclipse or IntelliJ IDEA to complete this assignment</b>, and we highly recommend that you use the Subversive Subversion plugin for Eclipse to handle adding your code to Subversion and tracking changes. It is easier than the command line svn client, especially if you are new to Subversion. Instructions on how to set up and use the plugin can be found at <a href="https://wiki.engr.illinois.edu/display/cs242fa12/Using+Subversion+From+Eclipse" title="Using Subversion From Eclipse">Using Subversion From Eclipse</a>.</p>
+
+<h2><a name="Assignment1.0-Beforeyouproceed%5C%21"></a>Before you proceed!</h2>
+
+<p>Read these two tutorials on the A* search algorithm:</p>
+
+<ul class="alternate" type="square">
+	<li><span class="nobr"><a href="http://www.policyalmanac.org/games/aStarTutorial.htm" class="external-link" rel="nofollow">http://www.policyalmanac.org/games/aStarTutorial.htm<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://www-cs-students.stanford.edu/~amitp/gameprog.html#Paths" class="external-link" rel="nofollow">http://www-cs-students.stanford.edu/~amitp/gameprog.html#Paths<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+<p>They will make understanding the rest of this assignment <b>so much easier</b>!</p>
+
+<h2><a name="Assignment1.0-Mazes"></a>Mazes</h2>
+
+<p>For this and the next couple assignments, you will write a library for solving mazes. You will be expected to write a library that can solve a maze and return the winning path through the maze. Your first step will be to write unit tests to build a "living documentation" of the desired functionality of that code. Your code must fully compile, without errors, to receive <em>any</em> credit <em>at all</em>.</p>
+
+<p>For this assignment, we only expect you to adopt the simplest possible definition of a maze: a grid where each each square is either passable or impassable. </p>
+
+<h4><a name="Assignment1.0-Resources"></a>Resources</h4>
+
+<p>Sun's java website is an invaluable resource when working with Java.  They post all the documentation for Java classes online.  In general you can Google "X class" where X is the name of a Java class and the first result will be the documentation for that class.  This includes methods, constructors and constants.</p>
+
+<h2><a name="Assignment1.0-A%5Calgorithm"></a>A* algorithm</h2>
+
+<p>A* is a graph searching algorithm, where the nodes in the graph represent the positions in the grid. It searches the graph for an optimized path to a goal node marking the end position of the maze. The choice of which intermediate nodes to move to, or expand, next is determined by some overall cost function, Cost(currentPosition). This cost function is defined in terms of two other functions:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>cost(currentPosition) = accumulated(currentPosition) + estimated(currentPosition)
+</pre>
+</div></div>
+
+<p>where accumulated(currentPosition) and estimated(currentPosition) are as follows:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>accumulated(currentPosition) - the total cost so far from the start of the maze to the node currentPosition.
+estimated(currentPosition) - an estimate of the distance from node currentPosition to the goal node.
+</pre>
+</div></div>
+
+<p>In our case, accumulated(currentPosition) would be a sum of the steps needed to get from starting point to the current position.</p>
+
+<p>The estimated(currentPosition) would be an estimated cost to get from the current position to the goal. For this first assignment, you will use the <b><em><span class="nobr"><a href="http://en.wikipedia.org/wiki/Taxicab_geometry" class="external-link" rel="nofollow">manhattan distance<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></em></b> for this heuristic cost function to estimate the distance from the current position to the end position.  For example, if the current position is (2, 3) and the end position is (10, 7) then the cost of traveling the manhattan distance is (10 -2) + (7 -3) = 12. Note that traveling the "manhattan route" representing the estimated path may not actually be a valid path in your maze; you will use this distance only as a rough estimate to the goal in order to find the optimal solution. For the cost function, use the diagonal shortcut.</p>
+
+<h3><a name="Assignment1.0-Clarification"></a>Clarification</h3>
+
+<p>The accumulated cost should include a constant factor of 100 for moves to the north, south, east, or west, and 141 for moves diagonally.  This makes your cost function something like:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>cost(currentPosition) = accumulated(currentPosition) + (100 or 141) + estimated(currentPosition)
+</pre>
+</div></div>
+
+<h3><a name="Assignment1.0-A%5CExample"></a>A* Example</h3>
+
+<p>Here is a good <span class="nobr"><a href="http://www.antimodal.com/astar/" class="external-link" rel="nofollow">demonstration of A* pathfinding<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>.  Try setting the "steps per frame" to 1.</p>
+
+<p><a name="Assignment1.0-implementationnotes"></a></p>
+
+<h3><a name="Assignment1.0-ImplementationNotes%3A"></a>Implementation Notes:</h3>
+
+<p>The following are choices you should consider in your implementation. Be sure to justify your design decisions.</p>
+
+<ul>
+	<li>Using arrays of list to implement the open and closed sets, algorithmically, is <b>not</b> a good idea.  Refer to this <span class="nobr"><a href="http://theory.stanford.edu/~amitp/GameProgramming/ImplementationNotes.html" class="external-link" rel="nofollow">discussion<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> for recommendations on more appropriate data structures.</li>
+	<li>Think about which data structure best suit each of their intended uses.</li>
+	<li>An evaluation function can be written in many different ways; some are more suited for fast numerical computation while others are less so.</li>
+	<li>Though you should use the  manhattan distance for your heuristic, you should write your program so that you are easily able to plug in another heuristic function.</li>
+</ul>
+
+
+<p>We don't expect any fancy, enhanced versions of A* or any other bold approaches. The most important necessity for your program is to find some answer; specifically, your program should be able to stop and give some error message if it cannot find a solution.   If there is a solution, the program should output the corresponding maze path, and this should be the optimal solution. To make it easier to deal with, we have defined the idea of perfect mazes. Refer to the lecture notes on mazes for clarification on this. If you have implemented A* properly, you should be able to satisfy these three requirements.</p>
+
+<h2><a name="Assignment1.0-UnitTesting"></a>Unit Testing</h2>
+
+<p>Unit testing is a great way to ensure that, given an implementation, the code works correctly.  This is enforced by creating small (unit) tests for each function.  Each test should be able to call the function it is testing, and determine if the function worked according to specification.</p>
+
+<p>This can be a funny concept at first, but it is really quite simple:  If you know the input to a function, and you know how the function works, you should know exactly what the output of the function is.  Since you know what the output should be before even calling the function, you can compare the output you get from making the function call to the expected output.  If they match up, then the test has succeeded.  Otherwise, it fails.</p>
+
+<p>In general, one test is not sufficient to be confident in the correctness of a function.  While it is better than nothing, a complete test suite would try all corner-cases, as well as the common case.  For instance, if a function operates on positive integers, and it is called with a negative parameter, does it do the right thing?  The success and failure of tests are completely defined by the person designing the application.  Therefore, it is necessary to clearly understand what a function should do in order to test it.</p>
+
+<p>Each test should be named in a fashion that clearly says what it does.  Each test should be written in such a way that it is immediately apparent from the prose of its statements:</p>
+<ul class="alternate" type="square">
+	<li>the objects it works on,</li>
+	<li>specific methods it tests,</li>
+	<li>an exceptions it calls or handles,</li>
+	<li>any preconditions and postconditions that must be met.</li>
+</ul>
+
+
+<p>If it doesn't, the test must include comments that fully explain what is missing.</p>
+
+<p>An example of a valid jUnit test would look like (for an imaginary Phone object):</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>public class PhoneTests {
+        //note these are jUnit 4 style tests, the naming convention is different for jUnit 3 style tests
+
+        /**
+	* The constructor is supplied with valid values so no exceptions should be thrown.
+	*/
+	@Test
+	public void ValidConstructor1() throws Exception {
+                String number = "1-555-555-5555"
+                String name = "John Smith"
+		Phone phone = new Phone(name,number);
+		assertEquals(number, phone.getNumber());
+                assertEquals(name, phone.getName());
+
+	}
+
+	/**
+	* This test checks the case where the constructor is supplied a phone number with too many dashes.
+	*/
+        @Test(expected=InvalidPhoneNumberException.class)
+	public void TooManyDashes() throws Exception {
+                String number = "9-9-999-999-9999";
+                String name = "John Smith";
+		Phone phone = new Phone(name,number);
+	}
+
+        //more tests below of course, you can never have too many!
+}
+</pre>
+</div></div>
+
+<p>Good testing requires you to test for the unexpected. Every function should have <em>at least</em> one test. However to get full credit, you should write tests which cover all corner cases and other possibilities that your library may eventually encounter. You do not need to write tests for extremely trivial, small functions (5 lines or less).</p>
+
+<p>You should write tests to cover all of the following issues:</p>
+<ul>
+	<li>Test to ensure that any input parameters are read in properly by your program.</li>
+	<li>Test whether a position is traversable.</li>
+	<li>Test that the cost of moving to adjacent positions is correctly calculated.</li>
+	<li>Test to see if a node/position is in the open or closed set.</li>
+	<li>Test that you can add or remove nodes/positions from the open and closed sets.</li>
+	<li>Test whether two nodes/positions are uniquely identified.</li>
+	<li>Test whether a node/position is the start or end node/position.</li>
+	<li>Test whether you have reached the goal node.</li>
+	<li>Tests that demonstrate that you can properly calculate the accumulated distances.</li>
+	<li>Tests that demonstrate that you can properly calculate the estimated distances. (The output to your heuristic function should be predictable given an input.)</li>
+	<li>Tests that verify you can find *optimal* paths from the start and end nodes. Your tests must pass for several, varied maze scenarios.</li>
+</ul>
+
+
+<p>Finally, you should include tests that:</p>
+<ul>
+	<li>Ensure the input and output values of each function are valid.</li>
+	<li>Ensure you functions properly handle improper inputs.</li>
+</ul>
+
+
+<p>Remember, <b>test-driven development means writing your tests before you write their implementation!</b></p>
+
+<p>When writing your functions always keep in mind writing them so that they are easy to test. The more focused each individual function is, the easier it will be to test, and the more correct your code will be.  Modularity is key to unit-testing.  It may even be a good idea to split your library into multiple classes depending on the data structure you use as an internal representation for a maze.</p>
+
+<p>There are some resources which aid in the unit testing process, such as JUnit for Eclipse.  You are free to use these if you would like.  Eclipse and JUnit are available on the CSIL Linux computers, and an introduction to using JUnit with Eclipse is provided in this assignment description.</p>
+
+<h2><a name="Assignment1.0-IntroductiontoEclipseandJUnit"></a>Introduction to Eclipse and JUnit</h2>
+
+<p>An example of jUnit 4 tests was shown above. Generally, developers put all unit tests for one type in one file, with multiple files of tests composing a test suite for the library or application. It will be much easier for you to keep things organized if you follow a similar pattern. Although Eclipse will let you run a single file containing jUnit tests directly, it takes a bit more effort to have Eclipse run all tests in all files at once (your test suite). For example, say I had tests for a Phone object in a file called PhoneTests and tests for an Address object in a file called AddressTests, I could have the Eclipse jUnit runner run them both by creating a file called something like ContactInfoTests and have it contain:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>package contactInfo.tests;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+/**
+ * Runs all tests for classes in the &lt;code&gt;contactInfo&lt;/code&gt; package
+ * @author Jerome Bell
+ *
+ */
+@RunWith(Suite.class)
+@Suite.SuiteClasses({AddressTests.class, PhoneTests.class})
+public class ContactInfoTests {
+}
+</pre>
+</div></div>
+<p>If I was to then instruct Eclipse to run ContactInfoTests as a jUnit test, it would run all the tests in both the PhoneTests class and the AddressTests class. You might not need to, but you can chain it up even further if you divide your tests into subcategories and have a master suite file like:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>package allTests;
+
+import junit.framework.TestSuite;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import contactInfo.tests.ContactInfoTests;
+import persistence.tests.DatabaseInterfaceTests;
+
+@RunWith(Suite.class)
+@Suite.SuiteClasses({ContactInfoTests.class, DatabaseInterfaceTests.class})
+public class RunAllTests extends TestSuite{
+}
+</pre>
+</div></div>
+
+<h3><a name="Assignment1.0-Resources"></a>Resources</h3>
+
+<ul>
+	<li><span class="nobr"><a href="http://junit.org/junit/javadoc/4.3/" class="external-link" rel="nofollow">JUnit API JavaDoc<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>: Note that this JavaDoc is for JUnit 4.3 which is the version on the CSIL Linux terminal servers. The latest version is 4.5. You will need to find the JavaDoc for the version you use. You will certainly be interested in the Assert class. Its documentation is available <span class="nobr"><a href="http://junit.org/junit/javadoc/4.3/org/junit/Assert.html" class="external-link" rel="nofollow">here<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>. You can use the statement "import static org.junit.Assert.<b>" at the top of each file you have that contains tests then use the assert</b> functions in your tests as if they were defined in that file.</li>
+	<li><span class="nobr"><a href="http://en.wikipedia.org/wiki/JUnit" class="external-link" rel="nofollow">JUnit (Wikipedia)<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://junit.org/" class="external-link" rel="nofollow">JUnit Homepage<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://en.wikipedia.org/wiki/Test-driven_development" class="external-link" rel="nofollow">Test-Driven development (Wikipedia)<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://www.eclipse.org/" class="external-link" rel="nofollow">Eclipse Homepage<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://en.wikipedia.org/wiki/Maze#Solving_mazes" class="external-link" rel="nofollow">Maze-solving algorithms (Wikipedia)<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+<h3><a name="Assignment1.0-GettingEclipse"></a>Getting Eclipse</h3>
+
+<p>You are encouraged to use the Eclipse which is installed on the CSIL Linux Terminal Servers. If you would like, you may download and install Eclipse on your own machine. Once you have downloaded eclipse, there is a great plug-in called Subversive that integrates Subversion into the IDE for you, so you do not have to worry about using the command line client or tortoisesvn. In addition, it is smart in that it will only commit the files that we require and nothing more, so you do not have to worry about accidentally committing binaries to the repository. Instructions on how to install Subversive can be found <a href="https://wiki.engr.illinois.edu/display/cs242fa12/Using+Subversion+From+Eclipse" title="Using Subversion From Eclipse">here</a>.</p>
+
+<h3><a name="Assignment1.0-BuildingJUnittestcases"></a>Building JUnit test cases</h3>
+
+<p>There is a good tutorial at <span class="nobr"><a href="http://www.vogella.de/articles/JUnit/article.html" class="external-link" rel="nofollow">http://www.vogella.de/articles/JUnit/article.html<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>. You may ignore section 5 on Easy Mock, as it is not a requirement for this assignment. Also note that the JUnit4.x.jar file is included with Eclipse 3.5, so you should not have to download the file from the JUnit website to add it to your classpath.</p>
+
+<p>After writing some JUnit tests, you can run them by right-clicking the project in the Package Explorer, and select Run As &gt; JUnit Test. This will bring up the JUnit view which shows information on which tests were run, and how many passed.</p>
+
+
+<h2><a name="Assignment1.0-ImportantQuestionstoConsider"></a>Important Questions to Consider</h2>
+
+<ul>
+	<li>If we asked you to drop in a new algorithm instead of the A* algorithm, how much would your code have to change? Can you make algorithms be "plug n play" (hint: think about <span class="nobr"><a href="http://en.wikipedia.org/wiki/Inheritance_(computer_science)" class="external-link" rel="nofollow">inheritance<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>)?</li>
+	<li>If the input format of the maze changed, how would your design adapt?</li>
+	<li>How easy will it be to have your library be the basis for a GUI in the future? What kind of functionality will a GUI require and how do you want to expose data to it? Your design should make it trivial to explain how a GUI would interact with it.</li>
+	<li>Remember to keep the <span class="nobr"><a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" class="external-link" rel="nofollow">Model-View-Controller design pattern<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> in mind when creating your library design. We won't be worrying about the view this week (that will be the GUI), but you should think about which parts of your design will be the model and which parts will be the controller. How will you keep them distinct and how will they interact?</li>
+	<li>Java is an example of an <span class="nobr"><a href="http://en.wikipedia.org/wiki/Object_Oriented_Programming" class="external-link" rel="nofollow">object oriented language<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>. How are you going to leverage this feature to increase your code's modularity? Will you use <span class="nobr"><a href="http://en.wikipedia.org/wiki/Inheritance_(computer_science)" class="external-link" rel="nofollow">inheritance<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> or <span class="nobr"><a href="http://en.wikipedia.org/wiki/Polymorphism_in_object-oriented_programming" class="external-link" rel="nofollow">polymorphism<sup><img class="rendericon" src="./Assignment 1.0_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>?</li>
+	<li>Do you have unit tests for all your functions? Do they cover all the base cases? What about boundary cases? What about error cases?</li>
+</ul>
+
+
+<h2><a name="Assignment1.0-Lastbitofhelp"></a>Last bit of help</h2>
+
+<div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 1.0_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b>Sample code and tests</b><br>To assist you in your efforts, here are two sample files <b><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203955184/SquareTest.java?version=1&modificationDate=1346271031000">SquareTest.java<sup><img class="rendericon" src="./Assignment 1.0_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></b> and <b><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203955184/Square.java?version=1&modificationDate=1346271031000">Square.java<sup><img class="rendericon" src="./Assignment 1.0_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></b>.  The square objects represent the nodes that the pathfinder traverses.  The squares are held by a maze object.  Each square is identified by a unique position object.  When we solved this assignment, we <em>did</em> in fact write <em>all</em> of the test <em>before</em> the methods they test.  After we wrote the tests, we wrote stub implementations of the tests that call them.  The code would then compile without errors, but the tests would fail since they didn't do anything yet. <b>This is normal.</b> Then one by one, we wrote the implementation for each of the methods until all of the test passed.</td></tr></tbody></table></div>
+<p><a name="Assignment1.0-requirements"></a></p>
+
+<h2><a name="Assignment1.0-Stillconfusedorneedhelp%3F"></a>Still confused or need help?</h2>
+
+<p>First, ask questions on Piazza. If you have a question, there is a pretty good chance someone else has the some one and an even better chance that someone else in the class or one of the TAs will be able to answer it for you. If you are still having a problem, email your moderator or one of the TAs to get advice. Remember, its best to ask questions early on so they have time to be answered. Don't wait until the last second to get started then realize that you are confused.</p>
+
+<h2><a name="Assignment1.0-WhatamIactuallyturningin%3F"></a>What am I actually turning in?</h2>
+
+<p>Many students find our concrete expectations for this first assignment confusing, and that's perfectly normal. There are a few key things to note here:</p>
+
+<ul>
+	<li>Your task is to design, test, and implement (more or less in that order) a maze solving library from scratch. This is intentionally vague, and we expect you to spend some time making design decisions for your library.</li>
+	<li>For this assignment, your <em>deliverables</em> are simply your unit test suite and your implementation. It is not part of the requirements to add a hook to run your maze solving algorithm given some input file, though it may be a good idea to consider.</li>
+	<li>Samples mazes to solve are not provided, nor are they explicitly required. However, creating sample mazes for some test cases of your library will likely be necessary to thoroughly test your code.</li>
+</ul>
+
+
+<p>If something is still unclear, ask on Piazza, chances are someone else is also confused. In general, we are flexible with interpretations of the assignment, <b>as long as it does not trivialize a component of the assignment</b>. For instance, assuming that mazes are read from some external file or that your maze generation algorithm is perfectly random (when in fact it is not) are both reasonable assumptions to make. However, an assuming that any maze consists of only one square would be an example of an unreasonable assumption.</p>
+
+
+<h2><a name="Assignment1.0-Requirements"></a>Requirements</h2>
+
+<p><b>We will bias clarity over cleverness in evaluating your code.</b> You should adopt a <em>"teaching"</em> mindset, always asking yourself, <em>"How would I change what I have written to make it as easy as possible for someone else to understand my code without my direct assistance?"</em></p>
+
+<p>We will use the standard <a href="https://wiki.engr.illinois.edu/display/cs242fa12/Grading" title="Grading">Grading</a> rubric for this assignment. </p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody>
+<tr>
+<th class="confluenceTh"> Category </th>
+<th class="confluenceTh"> Weight </th>
+<th class="confluenceTh"> Scoring </th>
+<th class="confluenceTh"> Notes </th>
+</tr>
+<tr>
+<td class="confluenceTd"> Basic Preparation </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-1 </td>
+<td class="confluenceTd"> Ready to go at the start of section </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Code Submission </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd"> Submitted on time and to the correct location in the repository </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements Satisfaction </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd"> Working implementation of maze data structures </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements Satisfaction </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd"> Working implementation of A* algorithm </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements Satisfaction </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd"> Connected A* with maze implementation to find shortest paths using maze library </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Presentation </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Participation </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Effort </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Testing </td>
+<td class="confluenceTd"> 12 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd"> Unit tests for all public functions, acceptable (&gt;75%) coverage </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Overall Design </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Naming </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Decomposition </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd"> Code is broken into cohesive, testable components</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Documentation </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd"> Comments for each class and each function listing a brief summary, its parameters, and its return value </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Cleverness </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd"> The hardest points on the rubric </td>
+</tr>
+</tbody></table>
+</div>
+    </div>
+ <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0"
+    dc:identifier="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0"
+    dc:title="Assignment 1.0"
+    trackback:ping="https://wiki.engr.illinois.edu/rpc/trackback/203955184"/>
+</rdf:RDF>
+-->
+</div>
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+<fieldset class="hidden parameters">
+        <input type="hidden" title="i18n.done.name" value="Done">
+        <input type="hidden" title="i18n.manage.watchers.dialog.title" value="Manage Watchers">
+        <input type="hidden" title="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
+        <input type="hidden" title="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
+</fieldset>
+<script type="text/x-template" title="manage-watchers-dialog">
+<div class="dialog-content">
+    <div class="column page-watchers">
+        <h3>Watching this page</h3>
+        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
+        <form action="/json/addwatch.action" method="POST">
+                <input type="hidden" name="atl_token" value="08d67891302d0c2637d357d4aefd6de8bfbd870a">
+            <input type="hidden" name="pageId" value="203955184"/>
+            <input type="hidden" id="add-watcher-username" name="username" value=""/>
+            <label for="add-watcher-user">User</label>
+            <input id="add-watcher-user" name="userFullName" type="search" class="autocomplete-user"
+               value="" placeholder="Full name or username" autocomplete="off"
+               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
+               data-template="{title}" data-none-message="No matching users found.">
+            <input id="add-watcher-submit" type="submit" name="add" value="Add">
+            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
+            <div class="status hidden"></div>
+        </form>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No page watchers</li>
+        </ul>
+    </div>
+    <div class="column space-watchers">
+        <h3>Watching this space</h3>
+        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No space watchers</li>
+        </ul>
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="manage-watchers-user">
+    <li class="watch-user">
+        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
+        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
+        <span class="remove-watch" title="Remove"
+            data-username="{username}">Remove</span>
+    </li>
+</script>
+<script type="text/x-template" title="manage-watchers-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Managing+Watchers" target="_blank">Help</a>
+    </div>
+</script>
+
+<!--END page.vmd-->
+                                        </div></div>
+                                    </td>
+                                </tr>
+                                <tr><td id="atb-footnote" class="layout atb-footnote"><div id="atb-footnotediv" class="layout atb-footnotediv">     
+<div class="commentsBlock">
+    
+
+
+
+
+            
+    
+
+        
+<fieldset class="parameters hidden">
+    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
+    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+        </fieldset>
+
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" title="i18n.cancel.name" value="Cancel">
+</fieldset>
+
+
+
+
+
+
+<div id="comments-section" class="pageSection">
+    
+    
+    
+    
+                                    </div>
+
+
+</div>
+  </div></td></tr>
+                            </tbody></table>
+                        </div></div></td>
+                    </tr>
+                    <tr><td id="atb-footer" class="layout atb-footer"><div id="atb-footerdiv" class="layout atb-footerdiv"> Adaptavist Theme Builder  </div></td></tr>
+                </tbody>
+            </table></div></div></div>
+        </td>
+    </tr>
+    <tr>
+        <td id="attribution" class="attribution" align="center"><div>
+            <a href="https://www.adaptavist.com/">Adaptavist Theme Builder</a> (4.2.2) Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.4.9, the <a href="https://wiki.engr.illinois.edu/display/cs242fa12/2042" class="hover-footer-link">Enterprise Wiki</a>
+        </div></td>
+    </tr>
+</tbody></table>
+<!--END themebody.vm-->
+
+
+<!--footer.vmd-->
+<script type="text/javascript">
+var domainName = "https://wiki.engr.illinois.edu";
+var entityId = "203955184";
+var spaceKey = "cs242fa12";
+</script>
+<!--[if gte IE 5.5000]>
+<script type="text/javascript">
+    if (window.DynarchMenu) {
+        DynarchMenu.preloadImages(new RegExp("^/hmenu/"));
+    }
+</script>
+<![endif]-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Assignment 1.0_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5626967-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!--END footer.vmd-->
+
+
+<div class="aui-popup aui-dialog" id="link-page-popup" style="margin-top: -105px; margin-left: -300px; width: 600px; height: 210px; background-color: rgb(255, 255, 255); z-index: 3002; display: none; background-position: initial initial; background-repeat: initial initial; " disabled=""><div class="dialog-components"><h2 class="dialog-title">Link to this Page</h2><ul class="dialog-page-menu" style="height: 114px; display: none; "><li class="page-menu-item selected"><button class="item-button">Link to this Page</button></li></ul><div class="dialog-page-body"><div class="dialog-panel-body" style="height: 104px; "><form id="link-page-popup-form" class="aui"><fieldset><div class="field-group"><label for="link-popup-field-link">Link:</label><input id="link-popup-field-link" readonly="readonly" value="" '="" class="text" type="text"></div><div class="field-group"><label for="link-popup-field-tiny-link">Tiny Link:</label><input id="link-popup-field-tiny-link" readonly="readonly" value="" '="" class="text" type="text"></div><div class="field-group"><label for="link-popup-field-wiki-markup">Wiki Markup:</label><input id="link-popup-field-wiki-markup" readonly="readonly" value="" '="" class="text" type="text"></div></fieldset></form></div></div><div class="dialog-button-panel"><button class="button-panel-button link-page-close-button">Close</button></div></div></div><div id="content-hover-shadow" style="display: none; "><div class="tl"></div><div class="tr"></div><div class="l"></div><div class="r"></div><div class="bl"></div><div class="br"></div><div class="b"></div></div><div id="fancy_overlay"></div><div id="fancy_wrap"><div class="fancy_loading" id="fancy_loading"><div></div></div><div id="fancy_outer"><div id="fancy_inner"><div id="fancy_close"></div><div id="fancy_bg"><div class="fancy_bg fancy_bg_n"></div><div class="fancy_bg fancy_bg_ne"></div><div class="fancy_bg fancy_bg_e"></div><div class="fancy_bg fancy_bg_se"></div><div class="fancy_bg fancy_bg_s"></div><div class="fancy_bg fancy_bg_sw"></div><div class="fancy_bg fancy_bg_w"></div><div class="fancy_bg fancy_bg_nw"></div></div><a href="javascript:;" id="fancy_left"><span class="fancy_ico" id="fancy_left_ico"></span></a><a href="javascript:;" id="fancy_right"><span class="fancy_ico" id="fancy_right_ico"></span></a><div id="fancy_content"></div><div id="fancy_title"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="fancy_title" id="fancy_title_left"></td><td class="fancy_title" id="fancy_title_main"><div></div></td><td class="fancy_title" id="fancy_title_right"></td></tr></tbody></table></div></div></div></div><div class="dynarch-popup-menu" style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action" title="Assignment 0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.1"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.1</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.2"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.2</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.3"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.3</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator" title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 2.0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 2.0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 2.1"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 2.1</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator" title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Final Project"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Final Project</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 1.0_files/document.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="document" alt="document"></td><td class="label">This page</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 1.0_files/documents.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="documents" alt="documents"></td><td class="label">Other pages</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 1.0_files/user1.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="user1" alt="user1"></td><td class="label">Account</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/document_plain.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_plain" alt="document_plain"></td><td class="label">Normal view</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/printer.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="printer" alt="printer"></td><td class="label">Printable view</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/mail2.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="mail2" alt="mail2"></td><td class="label">Email this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/about.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="about" alt="about"></td><td class="label">Page information</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/star_grey.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Add page as favourite</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/house.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="house" alt="house"></td><td class="label">Home page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/presentation.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="presentation" alt="presentation"></td><td class="label">Dashboard</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/news.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="news" alt="news"></td><td class="label">News</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/document_new.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_new" alt="document_new"></td><td class="label">Recent updates</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/magic-wand.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="magic-wand" alt="magic-wand"></td><td class="label">RSS feed builder</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/index.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="index" alt="index"></td><td class="label">Index</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/document_into.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_into" alt="document_into"></td><td class="label">Site map</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/bookmark.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="bookmark" alt="bookmark"></td><td class="label">Labels</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/paperclip.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="paperclip" alt="paperclip"></td><td class="label">Attachments index</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/users3.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="users3" alt="users3"></td><td class="label">People Directory</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/id_card.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="id_card" alt="id_card"></td><td class="label">Preferences: Joshua Harris</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/clock.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="clock" alt="clock"></td><td class="label">History</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/door2.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="door2" alt="door2"></td><td class="label">Log out</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 1.0_files/registry.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="registry" alt="registry"></td><td class="label">Administration</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/server_document.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="server_document" alt="server_document"></td><td class="label">Advanced</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.0_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch entire space</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div></body><style type="text/css"></style></html>

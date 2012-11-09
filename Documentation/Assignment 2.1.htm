@@ -1,0 +1,1032 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0063)https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Assignment 2.1 - CS242: Programming Studio -&nbsp;University of Illinois - Engineering Wiki</title>
+
+        
+
+                        
+    
+                        
+    
+
+    
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta name="ajs-context-path" content="">
+<meta name="ajs-build-number" content="2042">
+<meta id="atlassian-token" name="atlassian-token" content="08d67891302d0c2637d357d4aefd6de8bfbd870a">
+<meta id="confluence-space-key" name="confluence-space-key" content="cs242fa12">
+<meta name="ajs-remote-user" content="jharri39">
+<meta name="ajs-static-resource-url-prefix" content="/s/2042/16/_">
+
+<meta name="Generator" content="Adaptavist Theme Builder 4.2.2">
+    <meta name="DESCRIPTION" content="Assignment 2.1 Expanding your routing software       Overview  This week, you will be expanding the software you built for CSAir last week Assignment 2.0 to include several important new features.    Continue working in the same language that you used last ... ">
+    
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+    <!-- include system css resources -->
+    <link type="text/css" rel="stylesheet" href="./Assignment 2.1_files/batch.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/2042/16/18/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Assignment 2.1_files/batch(1).css" media="print">
+<link type="text/css" rel="stylesheet" href="./Assignment 2.1_files/confluence.web.resources-view-comment.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/2042/16/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Assignment 2.1_files/confluence.macros.advanced-fancy-box.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 2.1_files/com.atlassian.confluence.plugins.drag-and-drop-support.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 2.1_files/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module-shortcuts.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 2.1_files/com.atlassian.confluence.keyboardshortcuts-confluence-keyboard-shortcuts.css" media="all">
+
+    <!-- end system css resources -->
+
+            <link rel="stylesheet" href="./Assignment 2.1_files/combined.css" type="text/css">
+    
+                    <link rel="stylesheet" type="text/css" href="./Assignment 2.1_files/skin-longhorn.css">
+        <script type="text/javascript">
+        var _dynarch_menu_url = "/s/2042/16/4.2.2/_/download/resources/com.adaptavist.confluence.themes.sitebuilder:sitebuilder/hmenu/src/";
+        document.write("<style>.menulist {display:none;}<\/style>");
+    </script><style>.menulist {display:none;}</style>
+
+<link rel="stylesheet" type="text/css" href="./Assignment 2.1_files/layout-resources.action">
+<link rel="stylesheet" type="text/css" href="./Assignment 2.1_files/layout-resources(1).action">
+
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+    <meta name="robots" content="NOYDIR,NOODP">
+    <meta name="confluence-request-time" content="1352426479001">
+
+<meta name="loggedInUsername" content="jharri39">
+            <meta name="ajs-keyboardshortcut-hash" content="509e0e67e4d7131ca810849d3d4ba1b7">
+    <!-- Deprecated since 3.4. To be removed in a future version of Confluence; use atl.header -->
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+    
+        <link rel="shortcut icon" href="https://wiki.engr.illinois.edu/favicon.ico">
+    <link rel="icon" type="image/png" href="https://wiki.engr.illinois.edu/s/2042/16/_/images/logo/confluence_16.png">
+
+    <link rel="search" type="application/opensearchdescription+xml" title="Search CS242: Programming Studio on University of Illinois - Engineering Wiki" href="https://wiki.engr.illinois.edu/plugins/builder/layout-resources.action?layoutId=CS242&key=cs242fa12&resource=opensearch&hash=1330985534293">
+
+
+<style type="text/css">
+    .atb-sidebar.expanded {display:run-in;}
+    .atb-sidebar.collapsed {display:none;visibility:collapse;}
+</style>
+
+
+        <!-- include system javascript resources -->
+                        
+    
+    <script type="text/javascript" src="./Assignment 2.1_files/batch.js"></script>
+<script type="text/javascript" src="./Assignment 2.1_files/confluence.macros.advanced-fancy-box.js"></script>
+<script type="text/javascript" src="./Assignment 2.1_files/confluence.macros.advanced-thumbnail-images.js"></script>
+<script type="text/javascript" src="./Assignment 2.1_files/com.atlassian.confluence.plugins.drag-and-drop-support.js"></script>
+<script type="text/javascript" src="./Assignment 2.1_files/com.atlassian.confluence.plugins.drag-and-drop-drag-and-drop-for-view-content.js"></script>
+<script type="text/javascript" src="./Assignment 2.1_files/com.atlassian.confluence.plugins.doctheme-splitter.js"></script>
+<script type="text/javascript" src="./Assignment 2.1_files/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module-shortcuts.js"></script>
+<script type="text/javascript" src="./Assignment 2.1_files/com.atlassian.confluence.keyboardshortcuts-confluence-keyboard-shortcuts.js"></script>
+<script type="text/javascript" src="./Assignment 2.1_files/legacy.confluence.web.resources-prototype.js"></script>
+
+    
+    <!-- end system javascript resources -->
+
+<script type="text/javascript" src="./Assignment 2.1_files/layout-resources(2).action"></script>
+
+    
+
+
+
+    
+    <link rel="canonical" href="./Assignment 2.1_files/Assignment 2.1.htm">
+    <link rel="shortlink" href="https://wiki.engr.illinois.edu/x/-xRbD">
+    <meta name="wikilink" content="[cs242fa12:Assignment 2.1]">
+
+</head>
+<body onload="BuilderEvents.onPageLoad();" onunload="BuilderEvents.onPageUnload();" class="atb-body layout-CS242  spacekey-cs242fa12 mode-view context-page decorator-page action-viewpage " id="atb-document">
+
+<!--[if lt IE 7.0000]>
+    <script type="text/javascript" language="JavaScript" src="/s/2042/16/4.2.2/_/download/resources/com.adaptavist.confluence.themes.sitebuilder:sitebuilder/js/PieNG.js"></script>
+<![endif]-->
+
+<dl id="atb-accessKeys">
+  <dt>Access Keys:</dt>
+  <dd><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#atb-content" accesskey="0">Skip to content (Access Key - 0)</a></dd>
+</dl>
+
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
+    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
+    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
+    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
+    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
+</fieldset>
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="104857600">
+    <input type="hidden" id="userLocale" value="en_GB">
+    <input type="hidden" id="staticResourceUrlPrefix" value="/s/2042/16/_">
+    <input type="hidden" id="contextPath" value="">
+</fieldset>
+
+    
+
+
+<!--themebody.vm-->
+<script type="text/javascript" language="JavaScript">
+</script>
+<table align="center" width="100%" cellspacing="0" cellpadding="0" class="atb-shell" id="com-atlassian-confluence">
+    <tbody><tr>
+        <td style="vertical-align:top;"><div class="atb-p1"><div class="atb-p2"><div class="atb-p3">
+            <table class="layout atb-page" width="100%" height="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td class="layout atb-upper"><div class="atb-u1"><div class="atb-u2">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr><td id="atb-header" class="layout atb-header"><div id="atb-headerdiv" class="layout atb-headerdiv">  <a href="https://wiki.engr.illinois.edu/display/cs242fa12?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel=" home"><img border="0" title="CS242: Programming Studio Logo" class="builder-logo space-logo" src="./Assignment 2.1_files/cs242fa12" alt="space logo"></a> </div></td></tr>
+                                 <tr><td id="atb-menu" class="layout atb-menu"><div id="atb-menudiv" class="layout atb-menudiv">  <div id="menu1" class="menubar menubar1  ajs-drop-down">
+    <div class="dynarch-horiz-menu"><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="item explicit-action" title="Home"><div unselectable="on">Home</div></td><td class="item explicit-action" title="Syllabus"><div unselectable="on">Syllabus</div></td><td class="item explicit-action" title="Lectures"><div unselectable="on">Lectures</div></td><td class="item explicit-action has-submenu" title="Assignments"><div unselectable="on">Assignments</div></td><td class="item explicit-action" title="Resources"><div unselectable="on">Resources</div></td><td class="item explicit-action" title="FAQ"><div unselectable="on">FAQ</div></td><td class="item explicit-action" title="Announcement Archive"><div unselectable="on">Announcement Archive</div></td><td class="separator" title=""><div unselectable="on"></div></td><td class="item menuitem  has-submenu" title=""><div unselectable="on">View</div></td><td class="item menuitem  has-submenu" title=""><div unselectable="on">Edit</div></td><td class="item explicit-action menuitem shrink-width has-submenu" title=""><div unselectable="on"><img src="./Assignment 2.1_files/eye-off.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></div></td></tr></tbody></table></div></div></div></div></div></div><ul id="menu1-data" class="" style="display: none; ">
+    
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Home" title="Home">Home</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Syllabus" title="Syllabus">Syllabus</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Lectures" title="Lectures">Lectures</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignments" title="Assignments">Assignments</a>
+	<ul>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+0" title="Assignment 0">Assignment 0</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0" title="Assignment 1.0">Assignment 1.0</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.1" title="Assignment 1.1">Assignment 1.1</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2" title="Assignment 1.2">Assignment 1.2</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.3" title="Assignment 1.3">Assignment 1.3</a></li>
+		<li><span class="error">[Assignment 1.4]</span></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.0" title="Assignment 2.0">Assignment 2.0</a></li>
+		<li><a href="./Assignment 2.1_files/Assignment 2.1.htm" title="Assignment 2.1">Assignment 2.1</a></li>
+		<li><span class="error">[Assignment 2.2]</span></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Final+Project" title="Final Project">Final Project</a></li>
+	</ul>
+	</li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Resources" title="Resources">Resources</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/FAQ" title="FAQ">FAQ</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Announcement+Archive" title="Announcement Archive">Announcement Archive</a></li>
+	<li><span class="error">[Discussion]</span></li>
+
+<li class="menuitem ">View<ul class="submenu "><li class="menuitem ">This page<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&decorator=normal" rel="nofollow">Normal view</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&decorator=printable" rel="nofollow">Printable view</a></li>
+  <li class="menu-separator "> </li>
+  
+  
+  
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/mailpage/mailpage.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=207295743" id="mailPageLink" class="" rel="nofollow">Email this page</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/viewinfo.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=207295743" rel="nofollow">Page information</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/labels/addfavourite.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&entityId=207295743" rel="nofollow">Add page as favourite</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=207295743" rel="nofollow">Watch this page</a></li>
+ </ul></li>
+ <li class="menuitem ">Other pages<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel=" home">Home page</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/dashboard.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">Dashboard</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/viewrecentblogposts.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">News</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/recentlyupdated.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">Recent updates</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/dashboard/configurerssfeed.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">RSS feed builder</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/listpages-alphaview.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel=" index">Index</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/listpages-dirview.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12&openId=207295743" rel="">Site map</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/labels/listlabels-heatmap.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">Labels</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/spaces/listattachmentsforspace.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Attachments index</a></li>
+  
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/browsepeople.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">People Directory</a></li>
+ </ul></li>
+ <li class="menu-separator "> </li>
+ <li class="menuitem ">Account<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/users/viewuserprofile.action?username=jharri39&atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">Preferences: Joshua Harris</a></li>
+  
+  <li class="menu-separator "> </li>
+  
+  <li class="menuitem "><a href="javascript:void(window.open('/users/viewuserhistory.action','user_history', 'width=620, height=450, resizable'));" rel="nofollow">History</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/logout.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="nofollow">Log out</a></li>
+ </ul></li>
+ </ul></li>
+<li class="menuitem ">Edit<ul class="submenu "><li class="menuitem ">Administration<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/spaces/viewspacesummary.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Advanced</a></li>
+  </ul></li>
+</ul></li>
+<li class="menuitem shrink-width"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#" rel="nofollow"><img src="./Assignment 2.1_files/eye-off.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></a><ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=207295743" rel="nofollow">Watch this page</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/plugins/builder/addspacenotification.action?loopbackURL=/display/cs242fa12/Assignment+2.1&atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Watch entire space</a></li>
+</ul></li>
+
+    </ul>
+</div>
+<script type="text/javascript" language="JavaScript">
+
+jQuery(function($) {
+ $("#menu1")[0].hide=function(){};
+});
+
+function initmenu_1() {
+    if (window.DynarchMenu) {
+        var menuOpts={electric:250, tooltips:true, shadows:[4,6], smoothShadows:true, blink:false, lazy:false, setFocus:false, scrolling:true};
+        if (jQuery.browser.opera) menuOpts["scrolling"]=false;
+        document.getElementById("menu1-data").className="";
+        DynarchMenu.setup("menu1-data", menuOpts);
+    }
+}
+
+AJS.toInit(function() {window.setTimeout(initmenu_1,0)});
+
+</script>
+ </div></td></tr>
+                                <tr><td id="atb-navigation" class="layout atb-navigation"><div id="atb-navigationdiv" class="layout atb-navigationdiv">  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td valign="middle"><span class="breadcrumbs"><ol class="breadcrumbs ellipsis" id="breadcrumbs.list"><li class="breadcrumb breadcrumb0 dashboardbreadcrumb"><a href="https://wiki.engr.illinois.edu/dashboard.action">Dashboard</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb1 spacebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12">CS242: Programming Studio</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb2 pagebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Home">Home</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb3 pagebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignments">Assignments</a>&nbsp;&gt;</li><li class="breadcrumb last breadcrumb4 pagebreadcrumb"><a href="./Assignment 2.1_files/Assignment 2.1.htm">Assignment 2.1</a></li></ol></span></td>
+<td align="right" valign="middle"><a href="https://wiki.engr.illinois.edu/labels/addfavourite.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&entityId=207295743" title="Add page as favourite" rel="nofollow"><img src="./Assignment 2.1_files/star_grey.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="Add page as favourite" alt="Add page as favourite"></a>
+<a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=207295743" title="Watch this page" rel="nofollow"><img src="./Assignment 2.1_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="Watch this page" alt="Watch this page"></a>
+
+
+
+</td></tr></tbody></table> </div></td></tr>
+                            </tbody></table></div></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="layout atb-lower"><div class="atb-l1"><div class="atb-l2">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr class="layout content-row">
+                                    <td class="layout atb-titlecontent">
+                                        <div id="atb-content" class="layout atb-content"><div id="atb-contentdiv" class="layout atb-contentdiv">
+                                            <!--page.vmd-->
+    
+    
+        
+    
+    
+                    
+    
+<div id="content" class="page view">
+
+
+
+
+<fieldset id="link-to-page-fields" class="hidden parameters">
+    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
+    <input type="hidden" id="linkToThisPageLink" value="Link">
+    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
+    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
+    <input type="hidden" id="linkToThisPageClose" value="Close">
+</fieldset>
+<fieldset class="hidden parameters">
+    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page – ‘Assignment 2.1’">
+    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
+    <input type="hidden" title="movePageDialogMoveButton" value="Move">
+    <input type="hidden" title="movePageDialogOkButton" value="OK">
+    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
+    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
+    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
+    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
+    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
+    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
+    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
+    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
+    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
+    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
+    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
+    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing &lt;b&gt;{0}&lt;/b&gt;.">
+    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing &lt;b&gt;{0}&lt;/b&gt;-&lt;b&gt;{1}&lt;/b&gt; of &lt;b&gt;{2}&lt;/b&gt; pages containing &lt;b&gt;{3}&lt;/b&gt;.">
+    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
+    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
+    <input type="hidden" title="pageTitle" value="Assignment 2.1">
+    <input type="hidden" title="parentPageTitle" value="Assignments">
+    <input type="hidden" title="fromPageTitle" value="">
+    <input type="hidden" title="spaceKey" value="cs242fa12">
+    <input type="hidden" title="spaceName" value="CS242: Programming Studio">
+    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children.">
+    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering">
+    <input type="hidden" title="movePageDialogBackButton" value="Back">
+    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder">
+    <input type="hidden" title="movePageDialogNextButton" value="Move">
+</fieldset>
+
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Specify the new parent page for this page and its children by space and title.
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+            <div class="row">
+                <label for="new-space">New space:</label>
+                <div class="value new-space-value">
+                    <input id="new-space-key" name="new-space-key" type="hidden" value="cs242fa12">
+                                            <span class="space-input">
+                            <input id="new-space" name="new-space" value="CS242: Programming Studio" disabled="disabled">
+                        </span>
+                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
+                                        <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-parent-page">New parent page:</label>
+                <div class="value new-parent-page-value">
+                    <span class="page-input">
+                        <input id="new-parent-page" name="new-parent-page" value="Assignments">
+                    </span>
+                    <span class="description">Start typing a page title to see a list of suggestions.</span>
+                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageErrors">
+    <div id="move-errors" class="hidden warning"></div>
+</script>
+<script type="text/x-template" title="movePageBreadcrumb">
+    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbLoading">
+    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbError">
+    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
+</script>
+<script type="text/x-template" title="movePageNoMatchingPages">
+    <ol><li><span class="warning">No matching pages found.</span></li></ol>
+</script>
+<script type="text/x-template" title="movePageNoMatchingSpaces">
+    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Search for and select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+        <div class="search-form">
+            <fieldset>
+                
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+                
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+                <input class="search-query" id="move-page-search-query">
+                
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+                                    <select id="move-page-search-space" class="search-space" disabled="disabled">
+                        <option value="cs242fa12" selected="selected">CS242: Programming Studio</option>
+                    </select>
+                                <input type="button" value="Search">
+                                    <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
+                            </fieldset>
+        </div>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageSearchResultsLoading">
+    <div class="searching">Searching…</div>
+</script>
+
+<script type="text/x-template" title="movePageHistoryPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Select the new parent page for this page and its children from your history.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageHistoryLoading">
+    <div class="searching">Loading…</div>
+</script>
+<script type="text/x-template" title="movePageBrowsePanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Click to select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div class="tree"></div>
+</script>
+<script type="text/x-template" title="movePagePanelLoading">
+    <span>Loading…</span>
+</script>
+<script type="text/x-template" title="movePageBrowsePanelSpace">
+    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
+</script>
+<script type="text/x-template" title="orderingPagePanel">
+<div id="orderingPlaceHolder"></div>
+</script>
+<script type="text/x-template" title="reorderCheckbox">
+<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
+</script>
+<script type="text/x-template" title="move-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Moving+a+Page" target="_blank">Help</a>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+<!-- Start restrictions section -->
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" title="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
+        <input type="hidden" title="i18n.page.perms.dialog.heading" value="Page Restrictions">
+        <input type="hidden" title="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
+        <input type="hidden" title="i18n.cancel.name" value="Cancel">
+        <input type="hidden" title="i18n.close.name" value="Close">
+        <input type="hidden" title="i18n.update.name" value="Save">
+</fieldset>
+
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                    <span id="page-permissions-choose-me" class="ajs-button normal">
+                        <img class="permission-entity-picture" src="/images/icons/profilepics/default.gif" border="0" alt="Me" align="absmiddle"/>
+                        <a href="#">Me</a>
+                        <span class="remote-user-name hidden">jharri39</span>
+                    </span>
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=cs242fa12&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/2042/16/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=cs242fa12&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=cs242fa12&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/2042/16/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=cs242fa12&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                                <span>
+                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
+                </span>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/2042/16/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/x-template" title="permissions-row-template">
+    <tr class="permission-row">
+                                
+                <td class="page-permissions-marker-cell" width="20%">
+            <span>Viewing restricted to:</span>
+        </td>
+                <td class="permission-entity" nowrap="true" width="40%">
+            <span class="entity-container">
+                <img class="permission-entity-picture"/>
+                <span class="permission-entity-display-name"></span>
+                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
+            </span>
+        </td>
+        <td class="permission-detail-column">
+            <div class="permission-remove-div">
+                <a href="#" class="remove-permission-link">Remove restriction</a>
+            </div>
+        </td>
+    </tr>
+</script>
+<script type="text/x-template" title="permissions-username-no-suggestion-template">
+    <ol>
+        <li><a href="#" class="message"><span>No matches</span></a></li>
+    </ol>
+</script>
+<script type="text/x-template" title="page-inherited-permissions-table-div-template">
+        <div class="page-inherited-permissions-owner-div">
+        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
+        <table class="page-permissions-table"></table>
+    </div>
+</script>
+<script type="text/x-template" title="page-restrictions-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Page+Restrictions" target="_blank">Help</a>
+    </div>
+</script>
+<!-- End restrictions section -->
+
+<fieldset class="hidden parameters">
+    <input type="hidden" title="spaceKeyEncoded" value="cs242fa12">
+    <input type="hidden" title="spaceKeyDecoded" value="cs242fa12">
+</fieldset>
+
+                      
+    
+     
+     <fieldset class="hidden parameters">
+                <input type="hidden" title="browsePageTreeMode" value="view">
+    </fieldset>
+    <div class="wiki-content">
+        <!-- wiki content -->
+            <h1><a name="Assignment2.1-Assignment2.1Expandingyourroutingsoftware"></a>Assignment 2.1 - Expanding your routing software</h1>
+
+<div class="navmenu" style="float:right; background:white; margin:3px; padding:3px"></div><table class="sectionMacro" border="0" cellpadding="5" cellspacing="0" width="100%"><tbody><tr>
+<td class="confluenceTd" valign="top" width="60%">
+
+<h2><a name="Assignment2.1-Overview"></a>Overview</h2>
+
+<p>This week, you will be expanding the software you built for CSAir <a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.0" title="Assignment 2.0">last week</a> to include several important new features. </p>
+
+<div class="panelMacro"><table class="noteMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 2.1_files/warning.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td><b>Programming Language</b><br>Continue working in the same language that you used <a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.0" title="Assignment 2.0">last week</a>, unless your moderator last week told you to switch languages.</td></tr></tbody></table></div>
+
+<p>Being the superstar senior software engineer that you are, CSAir has decided that your work last week as impeccable and have asked you to add new features to the routing program you wrote for them last week. CEO Woodley has decided that in order to continue the development of the company, the software needs to be able to accommodate changes and be useful for travel agents. The new requirements for the software are:</p>
+
+<ol>
+	<li>Allow for online editing of the route network</li>
+	<li>Saving the route network back to disk</li>
+	<li>Displaying additional information about routes in the network</li>
+	<li>Allow for finding the shortest route between two cities</li>
+	<li>Enhance the system to accommodate CSAir's expansion</li>
+</ol>
+
+
+<p>CSAir has provided you with a text file containing a representation of its route map in <span class="nobr"><a href="http://www.json.org/" class="external-link" rel="nofollow">JSON<sup><img class="rendericon" src="./Assignment 2.1_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> format. You can get the given data <span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/207295743/map_data.json?version=1&modificationDate=1349245462000">here<sup><img class="rendericon" src="./Assignment 2.1_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>. This is the same data we gave you last week.</p>
+
+<h2><a name="Assignment2.1-PartI%3AOnlineeditingoftheroutenetwork"></a>Part I : Online editing of the route network</h2>
+
+<p>This component of the assignment requires you to write an interface that allows the user to do the following to the already constructed route network:</p>
+
+<ol>
+	<li>Remove a city
+	<ul>
+		<li>Consider side effects (what should you do with routes to/from a city if it is deleted)</li>
+	</ul>
+	</li>
+	<li>Remove a route</li>
+	<li>Add a city, including all its necessary information</li>
+	<li>Add a route, including all its necessary information</li>
+	<li>Edit an existing city</li>
+</ol>
+
+
+<p>CEO Woodley has said that it is not up to you to verify correctness of any information that is added or edited, but you do need to sanity check inputs (no negative distances or populations, etc).</p>
+
+<h2><a name="Assignment2.1-PartII%3ASavingtheroutenetworktodisk"></a>Part II : Saving the route network to disk</h2>
+
+<p>You will need to edit your software to allow the user to save their changes back to disk in JSON format. The format of the JSON file you generate must match the format of the input file you were given last week. That is, your code from last week should be able to load in the JSON you generate this week with no changes made to it. </p>
+
+<p>We encourage you to use the JSON library that you used last week to help you. Many of these libraries allow you to build up a JSON type of object and then the library will convert it out to JSON for you. This way you do not need to worry about JSON syntax, just about the structure of the data.</p>
+
+<h2><a name="Assignment2.1-PartIII%3AGettinginformationaboutaroute"></a>Part III : Getting information about a route</h2>
+
+<p>You will need to take in a list of cities that form a valid route in the network (you will need to check for this), and print out information about the route. The information that needs to be printed must include:</p>
+
+<ul>
+	<li>The total distance of the route</li>
+	<li>The cost to fly the route</li>
+	<li>The time it will take to travel the route</li>
+</ul>
+
+
+<p>In order to calculate the last two pieces of data, CEO Woodley has provided you with the following algorithms:</p>
+
+<h4><a name="Assignment2.1-Cost"></a>Cost</h4>
+
+<p>To calculate cost, the first leg of any flight will cost $0.35 per kilometer traveled. Each additional leg will cost $0.05 less per kilometer. If the cost for a leg of the route becomes free, keep the cost free for the rest of the route. This cost schedule is due to the fact that non-stop flights are preferable to customers, so we discount them if they stay on our airline even if it means taking more flights.</p>
+
+<h4><a name="Assignment2.1-Time"></a>Time</h4>
+
+<p>CSAir operates a fleet of jets that all have a cruising speed of 750 kph. Each jet spends the first 200 kilometers of its flight uniformly accelerating from 0 kph to 750 kph, stays at 750 kph while it is cruising, and then decelerates uniformly from 750 kph to 0 kph during the last 200 kilometers of its flight. If a flight is less than 400 kilometers in distance, the jet accelerates uniformly for the first half of the flight and decelerates uniformly for the second half of the flight. In addition, passengers will experience some layover time while waiting at airports for connecting flights. The schedule to determine the layover time works as follows. The airport with the least number of outbound flights (1) has a layover time of 2 hours. For airports with 2 outbound flights, the layover time is 1hr 50min. Continue subtracting 10 minutes for each additional outbound flight that CSAir has from an airport to calculate its layover time.</p>
+
+<h2><a name="Assignment2.1-PartIV%3AFindingtheshortestroutebetweentwocities"></a>Part IV : Finding the shortest route between two cities</h2>
+
+<p>Your task here is given two cities in CSAir's route network, find the shortest path by distance between those two cities and print out the statistics about that route that we mentioned earlier. To do this, you will need to employ <span class="nobr"><a href="https://secure.wikimedia.org/wikipedia/en/wiki/Dijkstra%27s_algorithm" class="external-link" rel="nofollow">Dijkstra's algorithm<sup><img class="rendericon" src="./Assignment 2.1_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>. The <span class="nobr"><a href="https://secure.wikimedia.org/wikipedia/en/wiki/Dijkstra%27s_algorithm#Algorithm" class="external-link" rel="nofollow">basic outline<sup><img class="rendericon" src="./Assignment 2.1_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> of the algorithm on Wikipedia does a good job of laying out the steps to perform it. You will probably need to modify your graph data structure to handle marking nodes as visited and assigning them distances. It is up to you to determine how to do this. Also, think about what other data structures you could use to improve the running time of this algorithm. Please note, if you decided to find a version of the algorithm that is already written and cite it, you will not be penalized for plagiarism, but you will <b>not</b> get credit for this portion of the assignment, so please write your own implementation from scratch.</p>
+
+<h2><a name="Assignment2.1-PartV%3AEnhancingthesystemtoaccommodateCSAir%27sexpansion"></a>Part V : Enhancing the system to accommodate CSAir's expansion</h2>
+
+<p>CSAir has decided that due to the economic upturn, CEO Woodley has decided to open up a new hub city in Champaign. CEO Woodley choose Champaign due to the closing of the aviation institute there and only one other airline servicing the airport, there is plenty of room for CSAir to move in. You have been provided with <span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/207295743/cmi_hub.json?version=1&modificationDate=1349245386000">another json file<sup><img class="rendericon" src="./Assignment 2.1_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> that has all the data you need. Incorporate this new data into your application, so that it can read in multiple json files and merge them together into one route network. Ensure that none of the other functionality is broken. That is, the statistics and route maps you generated last week should be updated to reflect the new data.</p>
+
+<h2><a name="Assignment2.1-Testing"></a>Testing</h2>
+
+<p>As usual, we require that you write extensive unit tests for each part of this assignment. We realize that testing a console interface is difficult, so it is acceptable to write unit tests for each of the functions that your library has.</p>
+</td>
+
+<td class="confluenceTd" valign="top" width="40%">
+<div class="panel" style="background-color: #ffffff;border-color: #000000;border-style: solid;border-width: 1px;"><div class="panelHeader" style="border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #000000;background-color: #cccccc;"><b>Summary</b></div><div class="panelContent" style="background-color: #ffffff;">
+<h2><a name="Assignment2.1-TableofContents"></a>Table of Contents</h2>
+
+<style type="text/css">/*<![CDATA[*/
+div.rbtoc1349247401106 {margin-left: 1.5em;padding: 0px;}
+div.rbtoc1349247401106 ul {list-style: decimal;margin-left: 0px;padding-left: 10px;}
+div.rbtoc1349247401106 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class="rbtoc1349247401106">
+<ul>
+<ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#Assignment2.1-Overview">Overview</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#Assignment2.1-PartI%3AOnlineeditingoftheroutenetwork">Part I : Online editing of the route network</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#Assignment2.1-PartII%3ASavingtheroutenetworktodisk">Part II : Saving the route network to disk</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#Assignment2.1-PartIII%3AGettinginformationaboutaroute">Part III : Getting information about a route</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#Assignment2.1-PartIV%3AFindingtheshortestroutebetweentwocities">Part IV : Finding the shortest route between two cities</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#Assignment2.1-PartV%3AEnhancingthesystemtoaccommodateCSAir%27sexpansion">Part V : Enhancing the system to accommodate CSAir's expansion</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1#Assignment2.1-Testing">Testing</a></li>
+</ul>
+</ul></div>
+
+<h2><a name="Assignment2.1-Reading"></a>Reading</h2>
+
+<ul>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/207295743/criteria.pdf?version=1&modificationDate=1349246047000">On the Criteria To Be Used in Decomposing Systems into Modules<sup><img class="rendericon" src="./Assignment 2.1_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+<div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 2.1_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The readings are due before lecture as usual, on Monday, October 8.</td></tr></tbody></table></div>
+
+<h2><a name="Assignment2.1-Submission"></a>Submission</h2>
+
+<p>This assignment is due at the <b>beginning of your discussion section the week of October 8, 2012</b>. Please be sure to submit in SVN, and ask your moderator or TA before the deadline if you have any questions. Also, make sure to place your work in a folder called <b>Assignment2.1</b>, matching this spelling exactly.</p>
+
+<h2><a name="Assignment2.1-Objectives"></a>Objectives</h2>
+
+<ul>
+	<li>Modify your existing design to accomodate new features</li>
+	<li>Learn implement Dijkstra's algorithm</li>
+	<li>Work with <span class="nobr"><a href="http://www.json.org/" class="external-link" rel="nofollow">JSON<sup><img class="rendericon" src="./Assignment 2.1_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> in reverse (write to JSON)</li>
+</ul>
+
+
+<h2><a name="Assignment2.1-Resources"></a>Resources</h2>
+
+<ul>
+	<li><span class="nobr"><a href="http://www.json.org/" class="external-link" rel="nofollow">JSON<sup><img class="rendericon" src="./Assignment 2.1_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="https://secure.wikimedia.org/wikipedia/en/wiki/Dijkstra%27s_algorithm" class="external-link" rel="nofollow">Dijkstra's<sup><img class="rendericon" src="./Assignment 2.1_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+<h2><a name="Assignment2.1-Grading"></a>Grading</h2>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody>
+<tr>
+<th class="confluenceTh"> Category </th>
+<th class="confluenceTh"> Weight </th>
+<th class="confluenceTh"> Scoring </th>
+</tr>
+<tr>
+<td class="confluenceTd"> Basic Preparation </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-1 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Cleverness </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Code Submission </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Decomposition </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Documentation </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Effort </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Naming </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Overall Design </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Participation </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Presentation </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements - Additional JSON </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements - Editing </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements - JSON Serialization </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements - Route Statistics </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements - Shortest path (Dijkstra's) </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Testing </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+</tr>
+<tr>
+<th class="confluenceTh"> Total </th>
+<th class="confluenceTh"> 58 </th>
+</tr>
+</tbody></table>
+</div>
+</div></div></td></tr></tbody></table>
+    </div>
+ <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1"
+    dc:identifier="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1"
+    dc:title="Assignment 2.1"
+    trackback:ping="https://wiki.engr.illinois.edu/rpc/trackback/207295743"/>
+</rdf:RDF>
+-->
+</div>
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+<fieldset class="hidden parameters">
+        <input type="hidden" title="i18n.done.name" value="Done">
+        <input type="hidden" title="i18n.manage.watchers.dialog.title" value="Manage Watchers">
+        <input type="hidden" title="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
+        <input type="hidden" title="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
+</fieldset>
+<script type="text/x-template" title="manage-watchers-dialog">
+<div class="dialog-content">
+    <div class="column page-watchers">
+        <h3>Watching this page</h3>
+        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
+        <form action="/json/addwatch.action" method="POST">
+                <input type="hidden" name="atl_token" value="08d67891302d0c2637d357d4aefd6de8bfbd870a">
+            <input type="hidden" name="pageId" value="207295743"/>
+            <input type="hidden" id="add-watcher-username" name="username" value=""/>
+            <label for="add-watcher-user">User</label>
+            <input id="add-watcher-user" name="userFullName" type="search" class="autocomplete-user"
+               value="" placeholder="Full name or username" autocomplete="off"
+               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
+               data-template="{title}" data-none-message="No matching users found.">
+            <input id="add-watcher-submit" type="submit" name="add" value="Add">
+            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
+            <div class="status hidden"></div>
+        </form>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No page watchers</li>
+        </ul>
+    </div>
+    <div class="column space-watchers">
+        <h3>Watching this space</h3>
+        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No space watchers</li>
+        </ul>
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="manage-watchers-user">
+    <li class="watch-user">
+        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
+        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
+        <span class="remove-watch" title="Remove"
+            data-username="{username}">Remove</span>
+    </li>
+</script>
+<script type="text/x-template" title="manage-watchers-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Managing+Watchers" target="_blank">Help</a>
+    </div>
+</script>
+
+<!--END page.vmd-->
+                                        </div></div>
+                                    </td>
+                                </tr>
+                                <tr><td id="atb-footnote" class="layout atb-footnote"><div id="atb-footnotediv" class="layout atb-footnotediv">     
+<div class="commentsBlock">
+    
+
+
+
+
+            
+    
+
+        
+<fieldset class="parameters hidden">
+    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
+    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+        </fieldset>
+
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" title="i18n.cancel.name" value="Cancel">
+</fieldset>
+
+
+
+
+
+
+<div id="comments-section" class="pageSection">
+    
+    
+    
+    
+                                    </div>
+
+
+</div>
+  </div></td></tr>
+                            </tbody></table>
+                        </div></div></td>
+                    </tr>
+                    <tr><td id="atb-footer" class="layout atb-footer"><div id="atb-footerdiv" class="layout atb-footerdiv"> Adaptavist Theme Builder  </div></td></tr>
+                </tbody>
+            </table></div></div></div>
+        </td>
+    </tr>
+    <tr>
+        <td id="attribution" class="attribution" align="center"><div>
+            <a href="https://www.adaptavist.com/">Adaptavist Theme Builder</a> (4.2.2) Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.4.9, the <a href="https://wiki.engr.illinois.edu/display/cs242fa12/2042" class="hover-footer-link">Enterprise Wiki</a>
+        </div></td>
+    </tr>
+</tbody></table>
+<!--END themebody.vm-->
+
+
+<!--footer.vmd-->
+<script type="text/javascript">
+var domainName = "https://wiki.engr.illinois.edu";
+var entityId = "207295743";
+var spaceKey = "cs242fa12";
+</script>
+<!--[if gte IE 5.5000]>
+<script type="text/javascript">
+    if (window.DynarchMenu) {
+        DynarchMenu.preloadImages(new RegExp("^/hmenu/"));
+    }
+</script>
+<![endif]-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Assignment 2.1_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5626967-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!--END footer.vmd-->
+
+
+<div class="aui-popup aui-dialog" id="link-page-popup" style="margin-top: -105px; margin-left: -300px; width: 600px; height: 210px; background-color: rgb(255, 255, 255); z-index: 3002; display: none; background-position: initial initial; background-repeat: initial initial; " disabled=""><div class="dialog-components"><h2 class="dialog-title">Link to this Page</h2><ul class="dialog-page-menu" style="height: 114px; display: none; "><li class="page-menu-item selected"><button class="item-button">Link to this Page</button></li></ul><div class="dialog-page-body"><div class="dialog-panel-body" style="height: 104px; "><form id="link-page-popup-form" class="aui"><fieldset><div class="field-group"><label for="link-popup-field-link">Link:</label><input id="link-popup-field-link" readonly="readonly" value="" '="" class="text" type="text"></div><div class="field-group"><label for="link-popup-field-tiny-link">Tiny Link:</label><input id="link-popup-field-tiny-link" readonly="readonly" value="" '="" class="text" type="text"></div><div class="field-group"><label for="link-popup-field-wiki-markup">Wiki Markup:</label><input id="link-popup-field-wiki-markup" readonly="readonly" value="" '="" class="text" type="text"></div></fieldset></form></div></div><div class="dialog-button-panel"><button class="button-panel-button link-page-close-button">Close</button></div></div></div><div id="content-hover-shadow" style="display: none; "><div class="tl"></div><div class="tr"></div><div class="l"></div><div class="r"></div><div class="bl"></div><div class="br"></div><div class="b"></div></div><div id="fancy_overlay"></div><div id="fancy_wrap"><div class="fancy_loading" id="fancy_loading"><div></div></div><div id="fancy_outer"><div id="fancy_inner"><div id="fancy_close"></div><div id="fancy_bg"><div class="fancy_bg fancy_bg_n"></div><div class="fancy_bg fancy_bg_ne"></div><div class="fancy_bg fancy_bg_e"></div><div class="fancy_bg fancy_bg_se"></div><div class="fancy_bg fancy_bg_s"></div><div class="fancy_bg fancy_bg_sw"></div><div class="fancy_bg fancy_bg_w"></div><div class="fancy_bg fancy_bg_nw"></div></div><a href="javascript:;" id="fancy_left"><span class="fancy_ico" id="fancy_left_ico"></span></a><a href="javascript:;" id="fancy_right"><span class="fancy_ico" id="fancy_right_ico"></span></a><div id="fancy_content"></div><div id="fancy_title"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="fancy_title" id="fancy_title_left"></td><td class="fancy_title" id="fancy_title_main"><div></div></td><td class="fancy_title" id="fancy_title_right"></td></tr></tbody></table></div></div></div></div><div class="dynarch-popup-menu" style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action" title="Assignment 0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.1"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.1</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.2"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.2</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.3"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.3</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator" title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 2.0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 2.0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 2.1"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 2.1</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator" title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Final Project"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Final Project</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 2.1_files/document.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="document" alt="document"></td><td class="label">This page</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 2.1_files/documents.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="documents" alt="documents"></td><td class="label">Other pages</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 2.1_files/user1.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="user1" alt="user1"></td><td class="label">Account</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/document_plain.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_plain" alt="document_plain"></td><td class="label">Normal view</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/printer.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="printer" alt="printer"></td><td class="label">Printable view</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/mail2.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="mail2" alt="mail2"></td><td class="label">Email this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/about.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="about" alt="about"></td><td class="label">Page information</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/star_grey.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Add page as favourite</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/house.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="house" alt="house"></td><td class="label">Home page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/presentation.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="presentation" alt="presentation"></td><td class="label">Dashboard</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/news.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="news" alt="news"></td><td class="label">News</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/document_new.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_new" alt="document_new"></td><td class="label">Recent updates</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/magic-wand.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="magic-wand" alt="magic-wand"></td><td class="label">RSS feed builder</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/index.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="index" alt="index"></td><td class="label">Index</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/document_into.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_into" alt="document_into"></td><td class="label">Site map</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/bookmark.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="bookmark" alt="bookmark"></td><td class="label">Labels</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/paperclip.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="paperclip" alt="paperclip"></td><td class="label">Attachments index</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/users3.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="users3" alt="users3"></td><td class="label">People Directory</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/id_card.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="id_card" alt="id_card"></td><td class="label">Preferences: Joshua Harris</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/clock.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="clock" alt="clock"></td><td class="label">History</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/door2.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="door2" alt="door2"></td><td class="label">Log out</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 2.1_files/registry.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="registry" alt="registry"></td><td class="label">Administration</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/server_document.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="server_document" alt="server_document"></td><td class="label">Advanced</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 2.1_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch entire space</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div></body><style type="text/css"></style></html>

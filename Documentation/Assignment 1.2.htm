@@ -1,0 +1,1156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0063)https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Assignment 1.2 - CS242: Programming Studio -&nbsp;University of Illinois - Engineering Wiki</title>
+
+        
+
+                        
+    
+                        
+    
+
+    
+<!-- Deprecated since 3.4. To be removed in a future version of Confluence; use AJS.Confluence.getContextPath() -->
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta name="ajs-context-path" content="">
+<meta name="ajs-build-number" content="2042">
+<meta id="atlassian-token" name="atlassian-token" content="08d67891302d0c2637d357d4aefd6de8bfbd870a">
+<meta id="confluence-space-key" name="confluence-space-key" content="cs242fa12">
+<meta name="ajs-remote-user" content="jharri39">
+<meta name="ajs-static-resource-url-prefix" content="/s/2042/16/_">
+
+<meta name="Generator" content="Adaptavist Theme Builder 4.2.2">
+    <meta name="DESCRIPTION" content="Table of Contents      Assignment 1.2 Extending Your Maze Solving Library for I/O  For this assignment you will:  # Clean up any problems in your code from Assignment 1.1 and expand your testing framework if necessary # Familiarize yourself with mock ... ">
+    
+<script type="text/javascript">
+    // Deprecated global variables. To be removed in a future version of Confluence.
+    var contextPath = '';
+</script>
+
+    
+
+    <!-- include system css resources -->
+    <link type="text/css" rel="stylesheet" href="./Assignment 1.2_files/batch.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/2042/16/18/_/download/superbatch/css/batch.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Assignment 1.2_files/batch(1).css" media="print">
+<link type="text/css" rel="stylesheet" href="./Assignment 1.2_files/confluence.web.resources-view-comment.css" media="all">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/s/2042/16/1.0/_/download/batch/confluence.web.resources:view-comment/confluence.web.resources:view-comment.css?ieonly=true" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="./Assignment 1.2_files/confluence.macros.advanced-fancy-box.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 1.2_files/com.atlassian.confluence.plugins.drag-and-drop-support.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 1.2_files/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module-shortcuts.css" media="all">
+<link type="text/css" rel="stylesheet" href="./Assignment 1.2_files/com.atlassian.confluence.keyboardshortcuts-confluence-keyboard-shortcuts.css" media="all">
+
+    <!-- end system css resources -->
+
+            <link rel="stylesheet" href="./Assignment 1.2_files/combined.css" type="text/css">
+    
+                    <link rel="stylesheet" type="text/css" href="./Assignment 1.2_files/skin-longhorn.css">
+        <script type="text/javascript">
+        var _dynarch_menu_url = "/s/2042/16/4.2.2/_/download/resources/com.adaptavist.confluence.themes.sitebuilder:sitebuilder/hmenu/src/";
+        document.write("<style>.menulist {display:none;}<\/style>");
+    </script><style>.menulist {display:none;}</style>
+
+<link rel="stylesheet" type="text/css" href="./Assignment 1.2_files/layout-resources.action">
+<link rel="stylesheet" type="text/css" href="./Assignment 1.2_files/layout-resources(1).action">
+
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+
+    <meta name="robots" content="NOYDIR,NOODP">
+    <meta name="confluence-request-time" content="1352426442079">
+
+<meta name="loggedInUsername" content="jharri39">
+            <meta name="ajs-keyboardshortcut-hash" content="509e0e67e4d7131ca810849d3d4ba1b7">
+    <!-- Deprecated since 3.4. To be removed in a future version of Confluence; use atl.header -->
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+    
+        <link rel="shortcut icon" href="https://wiki.engr.illinois.edu/favicon.ico">
+    <link rel="icon" type="image/png" href="https://wiki.engr.illinois.edu/s/2042/16/_/images/logo/confluence_16.png">
+
+    <link rel="search" type="application/opensearchdescription+xml" title="Search CS242: Programming Studio on University of Illinois - Engineering Wiki" href="https://wiki.engr.illinois.edu/plugins/builder/layout-resources.action?layoutId=CS242&key=cs242fa12&resource=opensearch&hash=1330985534293">
+
+
+<style type="text/css">
+    .atb-sidebar.expanded {display:run-in;}
+    .atb-sidebar.collapsed {display:none;visibility:collapse;}
+</style>
+
+
+        <!-- include system javascript resources -->
+                        
+    
+    <script type="text/javascript" src="./Assignment 1.2_files/batch.js"></script>
+<script type="text/javascript" src="./Assignment 1.2_files/confluence.macros.advanced-fancy-box.js"></script>
+<script type="text/javascript" src="./Assignment 1.2_files/confluence.macros.advanced-thumbnail-images.js"></script>
+<script type="text/javascript" src="./Assignment 1.2_files/com.atlassian.confluence.plugins.drag-and-drop-support.js"></script>
+<script type="text/javascript" src="./Assignment 1.2_files/com.atlassian.confluence.plugins.drag-and-drop-drag-and-drop-for-view-content.js"></script>
+<script type="text/javascript" src="./Assignment 1.2_files/com.atlassian.confluence.plugins.doctheme-splitter.js"></script>
+<script type="text/javascript" src="./Assignment 1.2_files/com.atlassian.plugins.shortcuts.atlassian-shortcuts-module-shortcuts.js"></script>
+<script type="text/javascript" src="./Assignment 1.2_files/com.atlassian.confluence.keyboardshortcuts-confluence-keyboard-shortcuts.js"></script>
+<script type="text/javascript" src="./Assignment 1.2_files/legacy.confluence.web.resources-prototype.js"></script>
+
+    
+    <!-- end system javascript resources -->
+
+<script type="text/javascript" src="./Assignment 1.2_files/layout-resources(2).action"></script>
+
+    
+
+
+
+    
+    <link rel="canonical" href="./Assignment 1.2_files/Assignment 1.2.htm">
+    <link rel="shortlink" href="https://wiki.engr.illinois.edu/x/ESgoD">
+    <meta name="wikilink" content="[cs242fa12:Assignment 1.2]">
+
+</head>
+<body onload="BuilderEvents.onPageLoad();" onunload="BuilderEvents.onPageUnload();" class="atb-body layout-CS242  spacekey-cs242fa12 mode-view context-page decorator-page action-viewpage " id="atb-document">
+
+<!--[if lt IE 7.0000]>
+    <script type="text/javascript" language="JavaScript" src="/s/2042/16/4.2.2/_/download/resources/com.adaptavist.confluence.themes.sitebuilder:sitebuilder/js/PieNG.js"></script>
+<![endif]-->
+
+<dl id="atb-accessKeys">
+  <dt>Access Keys:</dt>
+  <dd><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#atb-content" accesskey="0">Skip to content (Access Key - 0)</a></dd>
+</dl>
+
+
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="statusDialogHeading" value="What are you working on?">
+    <input type="hidden" id="statusDialogAccessibilityLabel" value="Enter your status (140 character limit)">
+    <input type="hidden" id="statusDialogLatestLabel" value="Last update:">
+    <input type="hidden" id="statusDialogUpdateButtonLabel" value="Update">
+    <input type="hidden" id="statusDialogCancelButtonLabel" value="Cancel">
+</fieldset>
+
+<fieldset class="hidden parameters">
+    <input type="hidden" id="globalSettingsAttachmentMaxSize" value="104857600">
+    <input type="hidden" id="userLocale" value="en_GB">
+    <input type="hidden" id="staticResourceUrlPrefix" value="/s/2042/16/_">
+    <input type="hidden" id="contextPath" value="">
+</fieldset>
+
+    
+
+
+<!--themebody.vm-->
+<script type="text/javascript" language="JavaScript">
+</script>
+<table align="center" width="100%" cellspacing="0" cellpadding="0" class="atb-shell" id="com-atlassian-confluence">
+    <tbody><tr>
+        <td style="vertical-align:top;"><div class="atb-p1"><div class="atb-p2"><div class="atb-p3">
+            <table class="layout atb-page" width="100%" height="100%" cellspacing="0" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td class="layout atb-upper"><div class="atb-u1"><div class="atb-u2">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr><td id="atb-header" class="layout atb-header"><div id="atb-headerdiv" class="layout atb-headerdiv">  <a href="https://wiki.engr.illinois.edu/display/cs242fa12?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel=" home"><img border="0" title="CS242: Programming Studio Logo" class="builder-logo space-logo" src="./Assignment 1.2_files/cs242fa12" alt="space logo"></a> </div></td></tr>
+                                 <tr><td id="atb-menu" class="layout atb-menu"><div id="atb-menudiv" class="layout atb-menudiv">  <div id="menu1" class="menubar menubar1  ajs-drop-down">
+    <div class="dynarch-horiz-menu"><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="item explicit-action" title="Home"><div unselectable="on">Home</div></td><td class="item explicit-action" title="Syllabus"><div unselectable="on">Syllabus</div></td><td class="item explicit-action" title="Lectures"><div unselectable="on">Lectures</div></td><td class="item explicit-action has-submenu" title="Assignments"><div unselectable="on">Assignments</div></td><td class="item explicit-action" title="Resources"><div unselectable="on">Resources</div></td><td class="item explicit-action" title="FAQ"><div unselectable="on">FAQ</div></td><td class="item explicit-action" title="Announcement Archive"><div unselectable="on">Announcement Archive</div></td><td class="separator" title=""><div unselectable="on"></div></td><td class="item menuitem  has-submenu" title=""><div unselectable="on">View</div></td><td class="item menuitem  has-submenu" title=""><div unselectable="on">Edit</div></td><td class="item explicit-action menuitem shrink-width has-submenu" title=""><div unselectable="on"><img src="./Assignment 1.2_files/eye-off.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></div></td></tr></tbody></table></div></div></div></div></div></div><ul id="menu1-data" class="" style="display: none; ">
+    
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Home" title="Home">Home</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Syllabus" title="Syllabus">Syllabus</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Lectures" title="Lectures">Lectures</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignments" title="Assignments">Assignments</a>
+	<ul>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+0" title="Assignment 0">Assignment 0</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.0" title="Assignment 1.0">Assignment 1.0</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.1" title="Assignment 1.1">Assignment 1.1</a></li>
+		<li><a href="./Assignment 1.2_files/Assignment 1.2.htm" title="Assignment 1.2">Assignment 1.2</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.3" title="Assignment 1.3">Assignment 1.3</a></li>
+		<li><span class="error">[Assignment 1.4]</span></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.0" title="Assignment 2.0">Assignment 2.0</a></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+2.1" title="Assignment 2.1">Assignment 2.1</a></li>
+		<li><span class="error">[Assignment 2.2]</span></li>
+		<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Final+Project" title="Final Project">Final Project</a></li>
+	</ul>
+	</li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Resources" title="Resources">Resources</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/FAQ" title="FAQ">FAQ</a></li>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Announcement+Archive" title="Announcement Archive">Announcement Archive</a></li>
+	<li><span class="error">[Discussion]</span></li>
+
+<li class="menuitem ">View<ul class="submenu "><li class="menuitem ">This page<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&decorator=normal" rel="nofollow">Normal view</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&decorator=printable" rel="nofollow">Printable view</a></li>
+  <li class="menu-separator "> </li>
+  
+  
+  
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/mailpage/mailpage.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203958289" id="mailPageLink" class="" rel="nofollow">Email this page</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/viewinfo.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203958289" rel="nofollow">Page information</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/labels/addfavourite.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&entityId=203958289" rel="nofollow">Add page as favourite</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203958289" rel="nofollow">Watch this page</a></li>
+ </ul></li>
+ <li class="menuitem ">Other pages<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/display/cs242fa12?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel=" home">Home page</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/dashboard.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">Dashboard</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/viewrecentblogposts.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">News</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/recentlyupdated.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">Recent updates</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/dashboard/configurerssfeed.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">RSS feed builder</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/listpages-alphaview.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel=" index">Index</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/listpages-dirview.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12&openId=203958289" rel="">Site map</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/labels/listlabels-heatmap.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="">Labels</a></li>
+  <li class="menu-separator "> </li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/spaces/listattachmentsforspace.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Attachments index</a></li>
+  
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/browsepeople.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">People Directory</a></li>
+ </ul></li>
+ <li class="menu-separator "> </li>
+ <li class="menuitem ">Account<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/users/viewuserprofile.action?username=jharri39&atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="">Preferences: Joshua Harris</a></li>
+  
+  <li class="menu-separator "> </li>
+  
+  <li class="menuitem "><a href="javascript:void(window.open('/users/viewuserhistory.action','user_history', 'width=620, height=375, resizable'));" rel="nofollow">History</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/logout.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a" rel="nofollow">Log out</a></li>
+ </ul></li>
+ </ul></li>
+<li class="menuitem ">Edit<ul class="submenu "><li class="menuitem ">Administration<ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/spaces/viewspacesummary.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Advanced</a></li>
+  </ul></li>
+</ul></li>
+<li class="menuitem shrink-width"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#" rel="nofollow"><img src="./Assignment 1.2_files/eye-off.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></a><ul class="submenu "><li class="menuitem "><a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203958289" rel="nofollow">Watch this page</a></li>
+  <li class="menuitem "><a href="https://wiki.engr.illinois.edu/plugins/builder/addspacenotification.action?loopbackURL=/display/cs242fa12/Assignment+1.2&atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&key=cs242fa12" rel="nofollow">Watch entire space</a></li>
+</ul></li>
+
+    </ul>
+</div>
+<script type="text/javascript" language="JavaScript">
+
+jQuery(function($) {
+ $("#menu1")[0].hide=function(){};
+});
+
+function initmenu_1() {
+    if (window.DynarchMenu) {
+        var menuOpts={electric:250, tooltips:true, shadows:[4,6], smoothShadows:true, blink:false, lazy:false, setFocus:false, scrolling:true};
+        if (jQuery.browser.opera) menuOpts["scrolling"]=false;
+        document.getElementById("menu1-data").className="";
+        DynarchMenu.setup("menu1-data", menuOpts);
+    }
+}
+
+AJS.toInit(function() {window.setTimeout(initmenu_1,0)});
+
+</script>
+ </div></td></tr>
+                                <tr><td id="atb-navigation" class="layout atb-navigation"><div id="atb-navigationdiv" class="layout atb-navigationdiv">  <table width="100%" cellpadding="0" cellspacing="0" border="0"><tbody><tr><td valign="middle"><span class="breadcrumbs"><ol class="breadcrumbs ellipsis" id="breadcrumbs.list"><li class="breadcrumb breadcrumb0 dashboardbreadcrumb"><a href="https://wiki.engr.illinois.edu/dashboard.action">Dashboard</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb1 spacebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12">CS242: Programming Studio</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb2 pagebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Home">Home</a>&nbsp;&gt;</li><li class="breadcrumb breadcrumb3 pagebreadcrumb"><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignments">Assignments</a>&nbsp;&gt;</li><li class="breadcrumb last breadcrumb4 pagebreadcrumb"><a href="./Assignment 1.2_files/Assignment 1.2.htm">Assignment 1.2</a></li></ol></span></td>
+<td align="right" valign="middle"><a href="https://wiki.engr.illinois.edu/labels/addfavourite.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&entityId=203958289" title="Add page as favourite" rel="nofollow"><img src="./Assignment 1.2_files/star_grey.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="Add page as favourite" alt="Add page as favourite"></a>
+<a href="https://wiki.engr.illinois.edu/pages/addpagenotification.action?atl_token=08d67891302d0c2637d357d4aefd6de8bfbd870a&pageId=203958289" title="Watch this page" rel="nofollow"><img src="./Assignment 1.2_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="Watch this page" alt="Watch this page"></a>
+
+
+
+</td></tr></tbody></table> </div></td></tr>
+                            </tbody></table></div></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="layout atb-lower"><div class="atb-l1"><div class="atb-l2">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody><tr class="layout content-row">
+                                    <td class="layout atb-titlecontent">
+                                        <div id="atb-content" class="layout atb-content"><div id="atb-contentdiv" class="layout atb-contentdiv">
+                                            <!--page.vmd-->
+    
+    
+        
+    
+    
+                    
+    
+<div id="content" class="page view">
+
+
+
+
+<fieldset id="link-to-page-fields" class="hidden parameters">
+    <input type="hidden" id="linkToThisPageHeading" value="Link to this Page">
+    <input type="hidden" id="linkToThisPageLink" value="Link">
+    <input type="hidden" id="linkToThisPageTinyLink" value="Tiny Link">
+    <input type="hidden" id="linkToThisPageWikiMarkup" value="Wiki Markup">
+    <input type="hidden" id="linkToThisPageClose" value="Close">
+</fieldset>
+<fieldset class="hidden parameters">
+    <input type="hidden" title="movePageDialogViewPageTitle" value="Move Page – ‘Assignment 1.2’">
+    <input type="hidden" title="movePageDialogEditPageTitle" value="Set Page Location">
+    <input type="hidden" title="movePageDialogMoveButton" value="Move">
+    <input type="hidden" title="movePageDialogOkButton" value="OK">
+    <input type="hidden" title="movePageDialogCancelButton" value="Cancel">
+    <input type="hidden" title="movePageDialogBrowsePanelTip" value="Click to select the new parent page for this page and its children.">
+    <input type="hidden" title="movePageDialogSearchPanel" value="Search">
+    <input type="hidden" title="movePageDialogHistoryPanel" value="Recently Viewed">
+    <input type="hidden" title="movePageDialogHistoryNoResults" value="There were no recently viewed pages found.">
+    <input type="hidden" title="movePageDialogLocationPanel" value="Known Location">
+    <input type="hidden" title="movePageDialogLocationNotFound" value="The specified page was not found.">
+    <input type="hidden" title="movePageDialogBrowsePanel" value="Browse">
+    <input type="hidden" title="movePageDialogPanelLoadErrorMsg" value="Error reading the panel content from the server.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorTip" value="You could try reloading the page and launching the dialog again.">
+    <input type="hidden" title="movePageDialogPanelLoadErrorStatus" value="HTTP Status">
+    <input type="hidden" title="movePageDialogNoSelectionErrorMsg" value="You must make a selection in the tree before you can move the page.">
+    <input type="hidden" title="movePageDialogSearchError" value="Failed to retrieve search results from the server.">
+    <input type="hidden" title="movePageDialogSearchNoResults" value="There were no pages found containing &lt;b&gt;{0}&lt;/b&gt;.">
+    <input type="hidden" title="movePageDialogSearchResultCount" value="Showing &lt;b&gt;{0}&lt;/b&gt;-&lt;b&gt;{1}&lt;/b&gt; of &lt;b&gt;{2}&lt;/b&gt; pages containing &lt;b&gt;{3}&lt;/b&gt;.">
+    <input type="hidden" title="movePageDialogMoveFailed" value="Move failed. There was a problem contacting the server.">
+    <input type="hidden" title="movePageDialogCannotChangeSpace" value="You cannot move this page to another space because you do not have permission to remove it from this space.">
+    <input type="hidden" title="pageTitle" value="Assignment 1.2">
+    <input type="hidden" title="parentPageTitle" value="Assignments">
+    <input type="hidden" title="fromPageTitle" value="">
+    <input type="hidden" title="spaceKey" value="cs242fa12">
+    <input type="hidden" title="spaceName" value="CS242: Programming Studio">
+    <input type="hidden" title="movePageDialogInvalidLocation" value="You cannot move a page to be underneath itself or its children.">
+    <input type="hidden" title="movePageDialogOrderingTitle" value="Page Ordering">
+    <input type="hidden" title="movePageDialogBackButton" value="Back">
+    <input type="hidden" title="movePageDialogMoveAndOrderButton" value="Reorder">
+    <input type="hidden" title="movePageDialogNextButton" value="Move">
+</fieldset>
+
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Specify the new parent page for this page and its children by space and title.
+            </div>
+        </div>
+    </div>
+    <div class="form">
+        <fieldset>
+            
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+            <div class="row">
+                <label for="new-space">New space:</label>
+                <div class="value new-space-value">
+                    <input id="new-space-key" name="new-space-key" type="hidden" value="cs242fa12">
+                                            <span class="space-input">
+                            <input id="new-space" name="new-space" value="CS242: Programming Studio" disabled="disabled">
+                        </span>
+                        <span class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</span>
+                                        <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-parent-page">New parent page:</label>
+                <div class="value new-parent-page-value">
+                    <span class="page-input">
+                        <input id="new-parent-page" name="new-parent-page" value="Assignments">
+                    </span>
+                    <span class="description">Start typing a page title to see a list of suggestions.</span>
+                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageErrors">
+    <div id="move-errors" class="hidden warning"></div>
+</script>
+<script type="text/x-template" title="movePageBreadcrumb">
+    <li><a class="{2}" title="{3}" tabindex="-1"><span>{0}</span></a></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbLoading">
+    <li class="loading"><span>Loading breadcrumbs&hellip;</span></li>
+</script>
+<script type="text/x-template" title="movePageBreadcrumbError">
+    <li class="warning last"><span>Error retrieving breadcrumbs.</span></li>
+</script>
+<script type="text/x-template" title="movePageNoMatchingPages">
+    <ol><li><span class="warning">No matching pages found.</span></li></ol>
+</script>
+<script type="text/x-template" title="movePageNoMatchingSpaces">
+    <ol><li><span class="warning">No matching spaces found.</span></li></ol>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Search for and select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+        <div class="search-form">
+            <fieldset>
+                
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+                
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+                <input class="search-query" id="move-page-search-query">
+                
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+                                    <select id="move-page-search-space" class="search-space" disabled="disabled">
+                        <option value="cs242fa12" selected="selected">CS242: Programming Studio</option>
+                    </select>
+                                <input type="button" value="Search">
+                                    <div class="description warning">You cannot move this page to another space because you do not have permission to remove it from this space.</div>
+                            </fieldset>
+        </div>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageSearchResultsLoading">
+    <div class="searching">Searching…</div>
+</script>
+
+<script type="text/x-template" title="movePageHistoryPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Select the new parent page for this page and its children from your history.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="movePageHistoryLoading">
+    <div class="searching">Loading…</div>
+</script>
+<script type="text/x-template" title="movePageBrowsePanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Click to select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div class="tree"></div>
+</script>
+<script type="text/x-template" title="movePagePanelLoading">
+    <span>Loading…</span>
+</script>
+<script type="text/x-template" title="movePageBrowsePanelSpace">
+    <ul><li id='tree-root-node-item' class='root-node-list-item'><a class='root-node' href='#'>{0}</a></li></ul>
+</script>
+<script type="text/x-template" title="orderingPagePanel">
+<div id="orderingPlaceHolder"></div>
+</script>
+<script type="text/x-template" title="reorderCheckbox">
+<span id="reorderRequirement"><input id="reorderCheck" type="checkbox" name="reorderFlag" title="Choose the position of this page within the list of child pages."/><label for="reorderCheck" title="Choose the position of this page within the list of child pages.">Reorder</label></span>
+</script>
+<script type="text/x-template" title="move-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Moving+a+Page" target="_blank">Help</a>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+<!-- Start restrictions section -->
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" title="i18n.page.perms.error.invalid.entity.names" value="Unknown user or group:">
+        <input type="hidden" title="i18n.page.perms.dialog.heading" value="Page Restrictions">
+        <input type="hidden" title="i18n.page.perms.editing.restricted.to" value="Editing restricted to:">
+        <input type="hidden" title="i18n.cancel.name" value="Cancel">
+        <input type="hidden" title="i18n.close.name" value="Close">
+        <input type="hidden" title="i18n.update.name" value="Save">
+</fieldset>
+
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+
+                <div id="page-permissions-error-div" class="hidden">
+            <a href="#" id="permissions-error-div-close">Ok</a>
+            <div></div>
+        </div>
+
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div>
+                <input id="restrictViewRadio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                    <span id="page-permissions-choose-me" class="ajs-button normal">
+                        <img class="permission-entity-picture" src="/images/icons/profilepics/default.gif" border="0" alt="Me" align="absmiddle"/>
+                        <a href="#">Me</a>
+                        <span class="remote-user-name hidden">jharri39</span>
+                    </span>
+                                <span id="page-permissions-choose-user" class="ajs-button">
+                    
+
+
+
+    
+
+
+
+<a href="#" id='userpicker-popup-link-image' onClick="var picker = window.open('/spaces/openuserpicker.action?key=cs242fa12&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;"><img src="/s/2042/16/_/images/icons/user_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose users" /></a>
+<a href="#" id='userpicker-popup-link-text' onClick="var picker = window.open('/spaces/openuserpicker.action?key=cs242fa12&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">Person...</a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="ajs-button">
+                    
+
+
+
+    
+
+ 
+
+<a href="#" id='grouppicker-popup-link-image' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=cs242fa12&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;"><img src="/s/2042/16/_/images/icons/group_16.gif" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" /></a>
+<a href="#" id='grouppicker-popup-link-text' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=cs242fa12&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">Group...</a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                                <span>
+                    <input type="text" id="page-permissions-names-input" class="input-placeholder" value="Enter user or group name" name="permissionNames" size="30" autocomplete="off"/>
+                </span>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <img height="16px" width="1px" src="/s/2042/16/_/images/border/spacer.gif"/>
+                <input type="button" id="add-typed-names" value="Restrict">
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No view restrictions are defined for this page</span></td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell"><span>No edit restrictions are defined for this page</span></td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<script type="text/x-template" title="permissions-row-template">
+    <tr class="permission-row">
+                                
+                <td class="page-permissions-marker-cell" width="20%">
+            <span>Viewing restricted to:</span>
+        </td>
+                <td class="permission-entity" nowrap="true" width="40%">
+            <span class="entity-container">
+                <img class="permission-entity-picture"/>
+                <span class="permission-entity-display-name"></span>
+                <span class="permission-entity-name-wrap">&nbsp;(<span class="permission-entity-name"></span>)</span>
+            </span>
+        </td>
+        <td class="permission-detail-column">
+            <div class="permission-remove-div">
+                <a href="#" class="remove-permission-link">Remove restriction</a>
+            </div>
+        </td>
+    </tr>
+</script>
+<script type="text/x-template" title="permissions-username-no-suggestion-template">
+    <ol>
+        <li><a href="#" class="message"><span>No matches</span></a></li>
+    </ol>
+</script>
+<script type="text/x-template" title="page-inherited-permissions-table-div-template">
+        <div class="page-inherited-permissions-owner-div">
+        <div class="page-inherited-permissions-table-desc">Viewing restrictions apply to “<a></a>”. In order to see “<span></span>”, a user must be in the following list of users and groups:</div>
+        <table class="page-permissions-table"></table>
+    </div>
+</script>
+<script type="text/x-template" title="page-restrictions-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Page+Restrictions" target="_blank">Help</a>
+    </div>
+</script>
+<!-- End restrictions section -->
+
+<fieldset class="hidden parameters">
+    <input type="hidden" title="spaceKeyEncoded" value="cs242fa12">
+    <input type="hidden" title="spaceKeyDecoded" value="cs242fa12">
+</fieldset>
+
+                      
+    
+     
+     <fieldset class="hidden parameters">
+                <input type="hidden" title="browsePageTreeMode" value="view">
+    </fieldset>
+    <div class="wiki-content">
+        <!-- wiki content -->
+            <h1><a name="Assignment1.2-TableofContents"></a>Table of Contents</h1>
+
+<div>
+<ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-TableofContents">Table of Contents</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-Assignment1.2ExtendingYourMazeSolvingLibraryforI%2FO">Assignment 1.2 - Extending Your Maze Solving Library for I/O</a></li>
+<ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-Reading">Reading</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-CodeSubmission">Code Submission</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-Resources">Resources</a></li>
+<ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-Mockito">Mockito</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-ImageI%2FO">Image I/O</a></li>
+</ul>
+</ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-PartI%3ARefactoring%26PolishingTestSuite">Part I: Refactoring &amp; Polishing Test Suite</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-PartII%3AMockUnitTesting">Part II: Mock Unit Testing</a></li>
+<ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-WhatisMockUnitTesting%3F">What is Mock Unit Testing?</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-Example">Example</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-WhyUseIt%3F">Why Use It?</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-YourTask">Your Task</a></li>
+</ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-PartIII%3AImageI%2FO">Part III: Image I/O</a></li>
+<ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-ImageIOinJava">Image IO in Java</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-Resources">Resources</a></li>
+</ul>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-PartIV%3ASimpleUserInterface">Part IV: Simple User Interface</a></li>
+    <li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2#Assignment1.2-Requirements">Requirements</a></li>
+</ul></div>
+
+<h1><a name="Assignment1.2-Assignment1.2ExtendingYourMazeSolvingLibraryforI%2FO"></a>Assignment 1.2 - Extending Your Maze Solving Library for I/O</h1>
+
+<p>For this assignment you will:</p>
+
+<ol>
+	<li>Clean up any problems in your code from <a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.1" title="Assignment 1.1">Assignment 1.1</a> and expand your testing framework if necessary</li>
+	<li>Familiarize yourself with mock unit testing</li>
+	<li>Add image I/O functionality to your library</li>
+	<li>Add a simple interface to interact with your library</li>
+</ol>
+
+
+<h2><a name="Assignment1.2-Reading"></a>Reading</h2>
+
+<ul>
+	<li><a href="https://wiki.engr.illinois.edu/display/cs242fa12/Best+Kept+Secrets+of+Peer+Code+Review" title="Best Kept Secrets of Peer Code Review">Best Kept Secrets of Peer Code Review</a> Pages 91-128 (<span class="nobr"><a href="mailto:tedesco1@illinois.edu" class="external-link" rel="nofollow">email Jon<sup><img class="rendericon" src="./Assignment 1.2_files/mail_small.gif" height="12" width="13" align="absmiddle" alt="" border="0"></sup></a></span> if you cannot access it)</li>
+</ul>
+
+
+<div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 1.2_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>The readings are due before lecture as usual, on Monday, September 17th.</td></tr></tbody></table></div>
+
+<h2><a name="Assignment1.2-CodeSubmission"></a>Code Submission</h2>
+
+<p>This assignment is due at the <b>beginning of your discussion section the week of September 17th, 2012</b>. Please be sure to submit in SVN, and ask your moderator or TA before the deadline if you have any questions. Also, make sure to place your work in a folder called <b>Assignment1.2</b>, matching this spelling exactly.</p>
+
+<h2><a name="Assignment1.2-Resources"></a>Resources</h2>
+
+<p>A collection of all resources mentioned in this writeup can be found here:</p>
+
+<h4><a name="Assignment1.2-Mockito"></a>Mockito</h4>
+
+<ul>
+	<li><span class="nobr"><a href="http://code.google.com/p/mockito/" class="external-link" rel="nofollow">Homepage<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://docs.mockito.googlecode.com/hg/latest/org/mockito/Mockito.html" class="external-link" rel="nofollow">Examples<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://stackoverflow.com/questions/7065402/how-to-add-external-library-in-intellij" class="external-link" rel="nofollow">Installation for IntelliJ<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://stackoverflow.com/questions/2824515/how-to-add-external-library-properly-in-eclipse" class="external-link" rel="nofollow">Installation for Eclipse<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+<h4><a name="Assignment1.2-ImageI%2FO"></a>Image I/O</h4>
+
+<ul>
+	<li><span class="nobr"><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/imageio/ImageIO.html" class="external-link" rel="nofollow">http://java.sun.com/j2se/1.4.2/docs/api/javax/imageio/ImageIO.html<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/BufferedImage.html" class="external-link" rel="nofollow">http://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/BufferedImage.html<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Color.html" class="external-link" rel="nofollow">http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Color.html<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+<h1><a name="Assignment1.2-PartI%3ARefactoring%26PolishingTestSuite"></a>Part I: Refactoring &amp; Polishing Test Suite</h1>
+
+<p>Before you begin refactoring, consider your test suite from <a href="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.1" title="Assignment 1.1">Assignment 1.1</a>. Did your moderator, the TAs, or your peers from discussion section suggest ways to improve the coverage of your test suite? Yes, yes, you should have written your tests <em>before</em> implementing your functionality last week, but if for whatever reason, your test suite could be more thorough, spend some time enriching your test suite <em>before</em> you begin refactoring. Doing so will help you refactor more quickly, and to be more confident in the correctness of your refactorings.</p>
+
+<p>If you have not already done so, consider using a code coverage tool such as <span class="nobr"><a href="http://www.eclemma.org/" class="external-link" rel="nofollow">EclEmma<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> for Eclipse, or the integrated code coverage features in <span class="nobr"><a href="http://www.jetbrains.com/idea/features/code_coverage.html" class="external-link" rel="nofollow">IntelliJ IDEA<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> to quantify how thorough your test suite truly is.</p>
+
+<p>You should refactor your code to eliminate any <a href="https://wiki.engr.illinois.edu/display/cs242fa12/Code+Smells" title="Code Smells">code smells</a> (e.g. use communicative naming, decompose larger methods into smaller separate methods, etc), add missing tests, or other problems discussed in section.  If you haven't already, you should be using a <span class="nobr"><a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/PriorityQueue.html" class="external-link" rel="nofollow">priority queue<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> and a <span class="nobr"><a href="http://java.sun.com/j2se/1.5.0/docs/api/java/util/Hashtable.html" class="external-link" rel="nofollow">hashtable<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> for the open and closed sets, respectively. Look <span class="nobr"><a href="http://theory.stanford.edu/~amitp/GameProgramming/ImplementationNotes.html" class="external-link" rel="nofollow">here<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span> for discussion about these (as well as more advanced data structures) in improving the performance of A*.</p>
+
+<h1><a name="Assignment1.2-PartII%3AMockUnitTesting"></a>Part II: Mock Unit Testing</h1>
+
+<p>For this assignment, we will be taking advantage of a mock unit test framework called <span class="nobr"><a href="http://code.google.com/p/mockito/" class="external-link" rel="nofollow">Mockito<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>. If you are unfamiliar with the concept of mock unit testing, fear not: it's a very simple concept.</p>
+
+<h2><a name="Assignment1.2-WhatisMockUnitTesting%3F"></a>What is Mock Unit Testing?</h2>
+
+<p>With a traditional unit testing framework like jUnit, setup some test case, interact with the module being tested, and verify the correctness of the output. Put simply, each unit test should follow three basic steps:</p>
+
+<ol>
+	<li>Setup (where we setup the test case)</li>
+	<li>Test (where we actually interact with the module/class we are testing)</li>
+	<li>Verify (where we use <em>assertEquals</em> or something similar to test the output for our module/class)</li>
+</ol>
+
+
+<p>At a high level, mock unit testing simply allows us to test <em>that a function (or class, object, or whatever) is used as we expect</em>. Specifically, such frameworks allow us to remove the implementation of a particular function at runtime, so that we can test that it is <em>called</em> without actually <em>running</em> its implementation.</p>
+
+<p>To supplement our jUnit test suite used thus far, we will be using <span class="nobr"><a href="http://code.google.com/p/mockito/" class="external-link" rel="nofollow">Mockito<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>, a mock unit testing framework for Java that plays well with jUnit. Mockito is extremely powerful, yet has a dead simple API.</p>
+
+<h2><a name="Assignment1.2-Example"></a>Example</h2>
+
+<p>Below is a simple example taken from Mockito's homepage, which should help make this concept more concrete:</p>
+
+<p><span class="image-wrap" style=""><img src="./Assignment 1.2_files/mock.png" style="border: 1px solid black"></span></p>
+
+<p>Using Mockito in this context may seem strange, and indeed, this example is only for demonstration purposes. However, there are several scenarios in which it would be highly advantageous to use a mock testing framework.</p>
+
+<p>For an excellent tutorial on Mockito and further examples of its usage (including more practical ones), please see <span class="nobr"><a href="http://docs.mockito.googlecode.com/hg/latest/org/mockito/Mockito.html" class="external-link" rel="nofollow">Mockito's documentation and examples page<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>.</p>
+
+<h2><a name="Assignment1.2-WhyUseIt%3F"></a>Why Use It?</h2>
+
+<p>The primary benefit of mock unit testing is to allow you to test components of your code in isolation, which yields a twofold benefit:</p>
+
+<p>1. First, when a method is called on a mock object, the true implementation for that object is not executed. For instance, in our example above, since we only ever use the <em>mockedList</em> object, the true implementation of the <em>List</em> class is never executed (i.e. the internal data structures for the <em>List</em>, etc). In short, each method call to a mocked object does nothing.<br>
+2. Second, the mock object records when its methods are called, the parameters to those methods, the number of times they were called, and even the order in which different functions were called. Thus, it allows us to test that the mock object is being used correctly by some other component.</p>
+
+<p>The power of mock unit test frameworks is displayed more clearly in situations where the implementation of a particular function or module should not be run during the run of the project's unit test suite. For example, consider the following example scenario.</p>
+
+<p>You are developing an application that interacts with a database (and that database contains important data!). You wouldn't want to touch the database each time the test suite is run, because you may lose data, slow down the test suite's execution, or perhaps because you believe doing so in the test suite is just downright inelegant. In this case, you could create a module responsible for interacting with the database, and exclusively use mock objects of this module. Thus during unit tests, the database will not be accessed or modified, but we can still test that the proper calls are made to the database module.</p>
+
+<p>Similar scenarios may arise, for example in the cases of networking (we don't want to touch the network every time we run the project's unit tests!), or disk I/O (for example image I/O as in this assignment).</p>
+
+<div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 1.2_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>If you're still not convinced that mocking is a good idea, please take a look at a few of these resources:
+
+<ul>
+	<li>A concise explanation on Stack Overflow: <span class="nobr"><a href="http://stackoverflow.com/questions/1414032/why-create-mock-objects" class="external-link" rel="nofollow">http://stackoverflow.com/questions/1414032/why-create-mock-objects<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li>A lengthy but readable blog post: <span class="nobr"><a href="http://codebetter.com/jeremymiller/2005/12/20/why-and-when-to-use-mock-objects/" class="external-link" rel="nofollow">http://codebetter.com/jeremymiller/2005/12/20/why-and-when-to-use-mock-objects/<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li>A more involved example from IBM (using a different mock test framework): <span class="nobr"><a href="http://www.ibm.com/developerworks/library/j-mocktest/index.html" class="external-link" rel="nofollow">http://www.ibm.com/developerworks/library/j-mocktest/index.html<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+</td></tr></tbody></table></div>
+
+<h2><a name="Assignment1.2-YourTask"></a>Your Task</h2>
+
+<p>For this assignment, you must download and add Mockito to your project, and use it to test that your mazes are being read and written as expected. For instance, you may want to test your maze running or solving components using a mock object for file I/O, so that the actual filesystem is never touched during the test execution.</p>
+
+<p><b>Do not checkin the Mockito JAR file to SVN. This wastes space, and will result in a point deduction for <em>Code Submission</em></b>.</p>
+
+<div class="panelMacro"><table class="infoMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 1.2_files/information.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>To install Mockito into your project, download the mockito <em>jar</em> file, and add it as a dependency to your project.
+
+<p>In Eclipse, this simply entails copying the JAR file into your project and adding it to the <em>build path</em>: <span class="nobr"><a href="http://www.eclipse.org/forums/index.php/t/346442/" class="external-link" rel="nofollow">http://www.eclipse.org/forums/index.php/t/346442/<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>.</p>
+
+<p>In IntellIJ, the processes is a few more steps, but is nonetheless fairly straightforward: <span class="nobr"><a href="http://stackoverflow.com/questions/7065402/how-to-add-external-library-in-intellij" class="external-link" rel="nofollow">http://stackoverflow.com/questions/7065402/how-to-add-external-library-in-intellij<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></p>
+
+<p><b>Again, please do not check the JAR file you download into SVN!</b></p></td></tr></tbody></table></div>
+
+
+<h1><a name="Assignment1.2-PartIII%3AImageI%2FO"></a>Part III: Image I/O</h1>
+
+<p>As of now, your library should be able to handle arbitrary simple mazes, regardless of the input or output format of the maze. This week, we would like you to expand your library to be able to:</p>
+
+<p>1. Parse mazes from a BMP image<br>
+2. Output the solved maze to a BMP image</p>
+
+<p><b>You are required to solve each of these mazes using your library</b>. Each is a grayscale BMP image, where the black pixels represent "road level" (passable) locations, and the white pixels represent the snow covered tops of (impassable) walls.</p>
+
+<ul>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203958289/maze0.bmp?version=1&modificationDate=1346876066000">maze0.bmp<sup><img class="rendericon" src="./Assignment 1.2_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203958289/maze1.bmp?version=1&modificationDate=1346876101000">maze1.bmp<sup><img class="rendericon" src="./Assignment 1.2_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203958289/maze2.bmp?version=1&modificationDate=1346876113000">maze2.bmp<sup><img class="rendericon" src="./Assignment 1.2_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+<p>Likewise, your library is required to output the solved mazes for this week. Below are the corresponding solved mazes. For this week, we expect your solutions to look similar to these, but <em>they do not need to be identical</em>. The following are solved examples of the above mazes, given various starting/ending points:</p>
+
+<ul>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203958289/maze0_sol1.bmp?version=1&modificationDate=1346876646000">maze0_sol1.bmp<sup><img class="rendericon" src="./Assignment 1.2_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203958289/maze0_sol2.bmp?version=1&modificationDate=1346876658000">maze0_sol2.bmp<sup><img class="rendericon" src="./Assignment 1.2_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203958289/maze1_sol1.bmp?version=1&modificationDate=1346876668000">maze1_sol1.bmp<sup><img class="rendericon" src="./Assignment 1.2_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203958289/maze1_sol2.bmp?version=1&modificationDate=1346876683000">maze1_sol2.bmp<sup><img class="rendericon" src="./Assignment 1.2_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="https://wiki.engr.illinois.edu/download/attachments/203958289/maze2_sol1.bmp?version=1&modificationDate=1346876693000">maze2_sol1.bmp<sup><img class="rendericon" src="./Assignment 1.2_files/link_attachment_7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+<p>Your implementation should use a variable to enable you to set the grey level threshold of what is considered an open space and what is considered a wall.</p>
+
+<h2><a name="Assignment1.2-ImageIOinJava"></a>Image IO in Java</h2>
+
+<p>The basics of image IO in Java are simple if you know what classes to look for.  Try the following code sample to open a BMP file</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>//Create file for the source
+File input = new File("c:/temp/image.bmp");
+
+//Read the file to a BufferedImage
+// Surround this with try/catch or have your method
+// throw an exception
+BufferedImage image = ImageIO.read(input);
+
+// Get width/height
+int height = image.getHeight();
+int width = image.getWidth();
+
+Color color = new Color(image.getRGB(x,y));
+
+</pre>
+</div></div>
+<p>Note that you will have to import some classes (Eclipse will tell you this, but so will I just for completeness):</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.awt.Color;
+</pre>
+</div></div>
+
+<h2><a name="Assignment1.2-Resources"></a>Resources</h2>
+
+<p>Sun's java website is an invaluable resource when working with Java.  They post all the documentation for Java classes online.  In general you can Goolge "X class" where X is the name of a Java class and the first result will be the documentation for that class.  This includes methods, constructors and constants.  The following documentation may be useful:</p>
+
+<ul>
+	<li><span class="nobr"><a href="http://java.sun.com/j2se/1.4.2/docs/api/javax/imageio/ImageIO.html" class="external-link" rel="nofollow">http://java.sun.com/j2se/1.4.2/docs/api/javax/imageio/ImageIO.html<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/BufferedImage.html" class="external-link" rel="nofollow">http://java.sun.com/j2se/1.4.2/docs/api/java/awt/image/BufferedImage.html<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+	<li><span class="nobr"><a href="http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Color.html" class="external-link" rel="nofollow">http://java.sun.com/j2se/1.4.2/docs/api/java/awt/Color.html<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span></li>
+</ul>
+
+
+
+<h1><a name="Assignment1.2-PartIV%3ASimpleUserInterface"></a>Part IV: Simple User Interface</h1>
+
+<p>Finally, we would like you to add a wrapper to your maze solving library to allow performing basic maze function via a text-based interface (i.e. usable from the terminal or console in your IDE of choice). It must allow the user to interact with your library via the console or command line, and we suggest (but do not require) that you make an interactive text-based interface for users.</p>
+
+<p>Your API should expose all basic functionality for your maze library, specifically:</p>
+
+<ul>
+	<li>Read an input image and parse it into a maze</li>
+	<li>Test whether a maze is solvable</li>
+	<li>Allow the user to choose the heuristic to use for solving the maze</li>
+	<li>Allow the user to choose the pathfinding algorithm to use for solving the maze</li>
+	<li>Find a solution in the maze if possible</li>
+	<li>Write any solution to an output image showing the best path overlaid on the input maze image</li>
+</ul>
+
+
+<div class="panelMacro"><table class="tipMacro"><colgroup><col width="24"><col></colgroup><tbody><tr><td valign="top"><img src="./Assignment 1.2_files/check.gif" width="16" height="16" align="absmiddle" alt="" border="0"></td><td>Although it is not necessary for this week's assignment, you may want to study the <span class="nobr"><a href="http://en.wikipedia.org/wiki/Model-view-controller" class="external-link" rel="nofollow">MVC (Model View Controller) architecture<sup><img class="rendericon" src="./Assignment 1.2_files/linkext7.gif" height="7" width="7" align="absmiddle" alt="" border="0"></sup></a></span>. How easy would it be to replace this week's simple text-based user interface with a different user interface?</td></tr></tbody></table></div>
+
+<h1><a name="Assignment1.2-Requirements"></a>Requirements</h1>
+
+<p><b>We will bias clarity over cleverness in evaluating your code.</b> You should adopt a <em>"teaching"</em> mindset, always asking yourself, <em>"How would I change what I have written to make it as easy as possible for someone else to understand my code without my direct assistance?"</em></p>
+
+<p>Below are the requirements for the assignment.  You should be prepared to defend your design decisions.</p>
+
+<div class="table-wrap">
+<table class="confluenceTable"><tbody>
+<tr>
+<th class="confluenceTh"> Category </th>
+<th class="confluenceTh"> Weight </th>
+<th class="confluenceTh"> Scoring </th>
+<th class="confluenceTh"> Notes </th>
+</tr>
+<tr>
+<td class="confluenceTd"> Basic Preparation </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-1 </td>
+<td class="confluenceTd"> Ready to go at the start of section </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Cleverness </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd"> The hardest points on the rubric </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Code Submission </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd"> Submitted on time and to the correct location in the repository </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Decomposition </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Documentation </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd"> Comments for each class and each function listing a brief summary, its parameters, and its return value </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Effort </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Naming </td>
+<td class="confluenceTd"> 2 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Overall Design </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Participation </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Presentation </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd">&nbsp;</td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements Satisfaction </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd"> Basic interface </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements Satisfaction </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd"> Image I/O with required mazes </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements Satisfaction </td>
+<td class="confluenceTd"> 4 </td>
+<td class="confluenceTd"> 0-2 </td>
+<td class="confluenceTd"> Mockito used for mock unit testing </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Requirements Satisfaction </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd"> Refactoring </td>
+</tr>
+<tr>
+<td class="confluenceTd"> Testing </td>
+<td class="confluenceTd"> 6 </td>
+<td class="confluenceTd"> 0-3 </td>
+<td class="confluenceTd"> Unit tests written for all new code &amp; expanded last week's tests if necessary </td>
+</tr>
+<tr>
+<th class="confluenceTh"> Total </th>
+<th class="confluenceTh"> 62 </th>
+</tr>
+</tbody></table>
+</div>
+    </div>
+ <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2"
+    dc:identifier="https://wiki.engr.illinois.edu/display/cs242fa12/Assignment+1.2"
+    dc:title="Assignment 1.2"
+    trackback:ping="https://wiki.engr.illinois.edu/rpc/trackback/203958289"/>
+</rdf:RDF>
+-->
+</div>
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+<fieldset class="hidden parameters">
+        <input type="hidden" title="i18n.done.name" value="Done">
+        <input type="hidden" title="i18n.manage.watchers.dialog.title" value="Manage Watchers">
+        <input type="hidden" title="i18n.manage.watchers.unable.to.remove.error" value="Failed to remove watcher. Refresh page to see latest status.">
+        <input type="hidden" title="i18n.manage.watchers.status.adding.watcher" value="Adding watcher&amp;hellip;">
+</fieldset>
+<script type="text/x-template" title="manage-watchers-dialog">
+<div class="dialog-content">
+    <div class="column page-watchers">
+        <h3>Watching this page</h3>
+        <p class="description">These people are notified when the page is changed. You can add or remove people from this list.</p>
+        <form action="/json/addwatch.action" method="POST">
+                <input type="hidden" name="atl_token" value="08d67891302d0c2637d357d4aefd6de8bfbd870a">
+            <input type="hidden" name="pageId" value="203958289"/>
+            <input type="hidden" id="add-watcher-username" name="username" value=""/>
+            <label for="add-watcher-user">User</label>
+            <input id="add-watcher-user" name="userFullName" type="search" class="autocomplete-user"
+               value="" placeholder="Full name or username" autocomplete="off"
+               data-max="10" data-target="#add-watcher-username" data-dropdown-target="#add-watcher-dropdown"
+               data-template="{title}" data-none-message="No matching users found.">
+            <input id="add-watcher-submit" type="submit" name="add" value="Add">
+            <div id="add-watcher-dropdown" class="aui-dd-parent autocomplete"></div>
+            <div class="status hidden"></div>
+        </form>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No page watchers</li>
+        </ul>
+    </div>
+    <div class="column space-watchers">
+        <h3>Watching this space</h3>
+        <p class="description">These people are notified when any content in the space is changed. You cannot modify this list.</p>
+        <ul class="user-list">
+            <li class="loading">Loading&hellip;</li>
+            <li class="no-users hidden">No space watchers</li>
+        </ul>
+    </div>
+</div>
+</script>
+<script type="text/x-template" title="manage-watchers-user">
+    <li class="watch-user">
+        <img class="profile-picture confluence-userlink" src="{iconUrl}" data-username="{username}">
+        <a class="confluence-userlink" href="{url}" data-username="{username}">{fullName} <span class="username">({username})</span></a>
+        <span class="remove-watch" title="Remove"
+            data-username="{username}">Remove</span>
+    </li>
+</script>
+<script type="text/x-template" title="manage-watchers-help-link">
+    <div class="dialog-help-link">
+            <a href="http://docs.atlassian.com/confluence/docs-34/Managing+Watchers" target="_blank">Help</a>
+    </div>
+</script>
+
+<!--END page.vmd-->
+                                        </div></div>
+                                    </td>
+                                </tr>
+                                <tr><td id="atb-footnote" class="layout atb-footnote"><div id="atb-footnotediv" class="layout atb-footnotediv">     
+<div class="commentsBlock">
+    
+
+
+
+
+            
+    
+
+        
+<fieldset class="parameters hidden">
+    <input type="hidden" id="deleteCommentConfirmMessage" value="Are you sure you want to remove the comment?">
+    <input type="hidden" id="collapseTooltip" value="Click to toggle the display of this comment.">
+        </fieldset>
+
+<fieldset class="hidden parameters i18n">
+        <input type="hidden" title="i18n.cancel.name" value="Cancel">
+</fieldset>
+
+
+
+
+
+
+<div id="comments-section" class="pageSection">
+    
+    
+    
+    
+                                    </div>
+
+
+</div>
+  </div></td></tr>
+                            </tbody></table>
+                        </div></div></td>
+                    </tr>
+                    <tr><td id="atb-footer" class="layout atb-footer"><div id="atb-footerdiv" class="layout atb-footerdiv"> Adaptavist Theme Builder  </div></td></tr>
+                </tbody>
+            </table></div></div></div>
+        </td>
+    </tr>
+    <tr>
+        <td id="attribution" class="attribution" align="center"><div>
+            <a href="https://www.adaptavist.com/">Adaptavist Theme Builder</a> (4.2.2) Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> 3.4.9, the <a href="https://wiki.engr.illinois.edu/display/cs242fa12/2042" class="hover-footer-link">Enterprise Wiki</a>
+        </div></td>
+    </tr>
+</tbody></table>
+<!--END themebody.vm-->
+
+
+<!--footer.vmd-->
+<script type="text/javascript">
+var domainName = "https://wiki.engr.illinois.edu";
+var entityId = "203958289";
+var spaceKey = "cs242fa12";
+</script>
+<!--[if gte IE 5.5000]>
+<script type="text/javascript">
+    if (window.DynarchMenu) {
+        DynarchMenu.preloadImages(new RegExp("^/hmenu/"));
+    }
+</script>
+<![endif]-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Assignment 1.2_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5626967-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+<!--END footer.vmd-->
+
+
+<div class="aui-popup aui-dialog" id="link-page-popup" style="margin-top: -105px; margin-left: -300px; width: 600px; height: 210px; background-color: rgb(255, 255, 255); z-index: 3002; display: none; background-position: initial initial; background-repeat: initial initial; " disabled=""><div class="dialog-components"><h2 class="dialog-title">Link to this Page</h2><ul class="dialog-page-menu" style="height: 114px; display: none; "><li class="page-menu-item selected"><button class="item-button">Link to this Page</button></li></ul><div class="dialog-page-body"><div class="dialog-panel-body" style="height: 104px; "><form id="link-page-popup-form" class="aui"><fieldset><div class="field-group"><label for="link-popup-field-link">Link:</label><input id="link-popup-field-link" readonly="readonly" value="" '="" class="text" type="text"></div><div class="field-group"><label for="link-popup-field-tiny-link">Tiny Link:</label><input id="link-popup-field-tiny-link" readonly="readonly" value="" '="" class="text" type="text"></div><div class="field-group"><label for="link-popup-field-wiki-markup">Wiki Markup:</label><input id="link-popup-field-wiki-markup" readonly="readonly" value="" '="" class="text" type="text"></div></fieldset></form></div></div><div class="dialog-button-panel"><button class="button-panel-button link-page-close-button">Close</button></div></div></div><div id="content-hover-shadow" style="display: none; "><div class="tl"></div><div class="tr"></div><div class="l"></div><div class="r"></div><div class="bl"></div><div class="br"></div><div class="b"></div></div><div id="fancy_overlay"></div><div id="fancy_wrap"><div class="fancy_loading" id="fancy_loading"><div></div></div><div id="fancy_outer"><div id="fancy_inner"><div id="fancy_close"></div><div id="fancy_bg"><div class="fancy_bg fancy_bg_n"></div><div class="fancy_bg fancy_bg_ne"></div><div class="fancy_bg fancy_bg_e"></div><div class="fancy_bg fancy_bg_se"></div><div class="fancy_bg fancy_bg_s"></div><div class="fancy_bg fancy_bg_sw"></div><div class="fancy_bg fancy_bg_w"></div><div class="fancy_bg fancy_bg_nw"></div></div><a href="javascript:;" id="fancy_left"><span class="fancy_ico" id="fancy_left_ico"></span></a><a href="javascript:;" id="fancy_right"><span class="fancy_ico" id="fancy_right_ico"></span></a><div id="fancy_content"></div><div id="fancy_title"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td class="fancy_title" id="fancy_title_left"></td><td class="fancy_title" id="fancy_title_main"><div></div></td><td class="fancy_title" id="fancy_title_right"></td></tr></tbody></table></div></div></div></div><div class="dynarch-popup-menu" style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action" title="Assignment 0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.1"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.1</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.2"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.2</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 1.3"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 1.3</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator" title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 2.0"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 2.0</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Assignment 2.1"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Assignment 2.1</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator" title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action" title="Final Project"><td class="icon"><div unselectable="on">&nbsp;</div></td><td class="label">Final Project</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 1.2_files/document.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="document" alt="document"></td><td class="label">This page</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 1.2_files/documents.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="documents" alt="documents"></td><td class="label">Other pages</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 1.2_files/user1.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="user1" alt="user1"></td><td class="label">Account</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/document_plain.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_plain" alt="document_plain"></td><td class="label">Normal view</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/printer.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="printer" alt="printer"></td><td class="label">Printable view</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/mail2.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="mail2" alt="mail2"></td><td class="label">Email this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/about.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="about" alt="about"></td><td class="label">Page information</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/star_grey.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Add page as favourite</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/house.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="house" alt="house"></td><td class="label">Home page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/presentation.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="presentation" alt="presentation"></td><td class="label">Dashboard</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/news.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="news" alt="news"></td><td class="label">News</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/document_new.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_new" alt="document_new"></td><td class="label">Recent updates</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/magic-wand.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="magic-wand" alt="magic-wand"></td><td class="label">RSS feed builder</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/index.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="index" alt="index"></td><td class="label">Index</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/document_into.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="document_into" alt="document_into"></td><td class="label">Site map</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/bookmark.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="bookmark" alt="bookmark"></td><td class="label">Labels</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/paperclip.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="paperclip" alt="paperclip"></td><td class="label">Attachments index</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/users3.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="users3" alt="users3"></td><td class="label">People Directory</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/id_card.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="id_card" alt="id_card"></td><td class="label">Preferences: Joshua Harris</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="separator menu-separator " title=""><td colspan="3"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/clock.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="clock" alt="clock"></td><td class="label">History</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/door2.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="door2" alt="door2"></td><td class="label">Log out</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item menuitem  has-submenu" title=""><td class="icon"><img src="./Assignment 1.2_files/registry.png" style="width:16;height:16;vertical-align:absmiddle;" class="nopie" title="registry" alt="registry"></td><td class="label">Administration</td><td class="end arrow"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/server_document.png" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="server_document" alt="server_document"></td><td class="label">Advanced</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div><div class="dynarch-popup-menu submenu " style="display: none; "><div class="d"><div class="c"><div class="b"><div class="a"><div class="dynarch-menu-scroll"><table cellspacing="0" cellpadding="0"><tbody><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch this page</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr><tr class="item explicit-action menuitem " title=""><td class="icon"><img src="./Assignment 1.2_files/watch_16.gif" style="width:16px;height:16px;vertical-align:absmiddle;" class="nopie" title="icon" alt="icon"></td><td class="label">Watch entire space</td><td class="end"><div unselectable="on">&nbsp;</div></td></tr></tbody></table></div></div></div></div></div></div></body><style type="text/css"></style></html>
